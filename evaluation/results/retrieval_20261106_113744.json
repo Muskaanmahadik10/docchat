@@ -1,0 +1,448 @@
+{
+ "mode": "retrieval",
+ "health": {
+  "llm": {
+   "provider": "openai",
+   "model": "qwen/qwen3.8-27b",
+   "ok": true,
+   "detail": "HTTP 200"
+  },
+  "embeddings": {
+   "provider": "ollama",
+   "model": "nomic-embed-text"
+  },
+  "rerank": {
+   "model": "BAAI/bge-reranker-base",
+   "enabled": true,
+   "error": ""
+  },
+  "max_context_tokens": 10000,
+  "answer_max_tokens": 1200
+ },
+ "docs": {
+  "lightrag": {
+   "id": "f97ee42f8be0db2e",
+   "filename": "2410.05779v2.pdf",
+   "sha256": "f97ee42f8be0db2eaa827879e9b9a2343f6170f04391c8736ef35128b31e178f",
+   "title": "LIGHTRAG: SIMPLE AND FAST RETRIEVAL-AUGMENTED GENERATION",
+   "status": "ready",
+   "stage": "ready",
+   "error": "",
+   "num_pages": 16,
+   "num_chunks": 50,
+   "num_tables": 5,
+   "total_tokens": 15369,
+   "retrieval": "hybrid",
+   "card": "Title: LIGHTRAG: SIMPLE AND FAST RETRIEVAL-AUGMENTED GENERATION\nPages: 16 · tables with captions: 5 · figures with captions: 7\nPDF metadata: creationDate: D:20241108013604Z; modDate: D:20241108013604Z\nFront matter (authors, affiliations, contact; first page, before the first heading):\nZirui Guo1,2, Lianghao Xia2, Yanhua Yu1, Tu Ao1, Chao Huang2∗\nBeijing University of Posts and Telecommunications1\nUniversity of Hong Kong2\nzrguo101@hku.hk aka_xia@foxmail.com chaohuang75@gmail.com\nAbstract / opening:\nRetrieval-Augmented Generation (RAG) systems enhance large language models (LLMs) by integrating external knowledge sources, enabling more accurate and contextually relevant responses tailored to user needs. However, existing RAG systems have significant limitations, including reliance on flat data representations and inadequate contextual awareness, which can lead to fragmented answers that fail to capture complex inter-dependencies. To address these challenges, we propose LightRAG, which incorporates graph structures into text indexing and retrieval processes. This innovative framework employs a dual-level retrieval system that enhances comprehensive information retrieval from both low-level and high-level knowledge discovery. Additionally, the integration of graph structures with vector representations facilitates efficient retrieval of related entities and their relationships, significantly improving response times while maintaining contextual relevance. This capability is further enhanced by an incremental update algorithm that ensures the timely integration of new data, allowing the system to remain effective and responsive in rapidly changing data environments. Extensive experimental validation demonstrates considerable improvements in retrieval accuracy and efficiency compared to existing approaches. We have made our LightRAG open-source and available at the link: https://github.com/HKUDS/LightRAG.\nOutline (section headings in order): ABSTRACT | 1 INTRODUCTION | 2 RETRIEVAL-AUGMENTED GENERATION | 3 THE LIGHTRAG ARCHITECTURE | 4 EVALUATION | 5 RELATED WORK | 6 CONCLUSION | REFERENCES | 7 APPENDIX\nTable and figure captions:\nFigure 1: Overall architecture of the proposed LightRAG framework.\nTable 1: Win rates (%) of baselines v.s. LightRAG across four datasets and four evaluation dimensions.\nTable 2: Performance of ablated versions of LightRAG, using NaiveRAG as reference.\nTable 3: Case Study: Comparison Between LightRAG and the Baseline Method GraphRAG.\nFigure 2: Comparison of Cost in Terms of Tokens and API Calls for GraphRAG and LightRAG on the Legal Dataset.\nTable 4: Statistical information of the datasets.\nFigure 3: A retrieval and generation example.\nFigure 4: Prompts for Graph Generation\nFigure 5: Prompts for Query Generation\nFigure 6: Prompts for Keyword Extraction\nFigure 7: Prompts for RAG Evaluation\nTable 5: Case Study: Comparison Between LightRAG and the Baseline NaiveRAG.",
+   "summary_status": "ready",
+   "summary_stage": "",
+   "created": 1793892842.321229
+  },
+  "bert": {
+   "id": "5692a5514787a8c6",
+   "filename": "1810.04805.pdf",
+   "sha256": "5692a5514787a8c6727b4ff3b726a3385798bc68e12138d1d4af83947e2acf6e",
+   "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+   "status": "ready",
+   "stage": "ready",
+   "error": "",
+   "num_pages": 16,
+   "num_chunks": 61,
+   "num_tables": 7,
+   "total_tokens": 18421,
+   "retrieval": "hybrid",
+   "card": "Title: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding\nPages: 16 · tables with captions: 7 · figures with captions: 5\nPDF metadata: creationDate: D:20190528000751Z; modDate: D:20190528000751Z\nFront matter (authors, affiliations, contact; first page, before the first heading):\nJacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweichang,kentonl,kristout}@google.com\nAbstract / opening:\nWe introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pretrain deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be ﬁnetuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial taskspeciﬁc architecture modiﬁcations. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5% (7.7% point absolute improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement). 1\nOutline (section headings in order): Abstract | Introduction | Related Work | Experiments | Conclusion | References | Appendix for “BERT: Pre-training of\nTable and figure captions:\nFigure 1: Overall pre-training and ﬁne-tuning procedures for BERT. Apart from output layers, the same architectures are used in both pre-training and ﬁne-tuning\nFigure 2: BERT input representation. The input embeddings are the sum of the token embeddings, the segmentation embeddings and the position embeddings.\nTable 1: GLUE Test results, scored by the evaluation server (https://gluebenchmark.com/leaderboard). The number below each task denotes the number of training e\nTable 2: SQuAD 1.1 results. The BERT ensemble is 7x systems which use different pre-training checkpoints and ﬁne-tuning seeds.\nTable 3: SQuAD 2.0 results. We exclude entries that use BERT as one of their components.\nTable 5: Ablation over the pre-training tasks using the BERTBASE architecture. “No NSP” is trained without the next sentence prediction task. …",
+   "summary_status": "ready",
+   "summary_stage": "",
+   "created": 1793926788.737279
+  },
+  "nist": {
+   "id": "7576edb531d98488",
+   "filename": "NIST.AI.100-1.pdf",
+   "sha256": "7576edb531d9848825814ee88e28b1795d3a84b435b4b797d3670eafdc4a89f1",
+   "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+   "status": "ready",
+   "stage": "ready",
+   "error": "",
+   "num_pages": 48,
+   "num_chunks": 82,
+   "num_tables": 2,
+   "total_tokens": 22476,
+   "retrieval": "hybrid",
+   "card": "Title: Artificial Intelligence Risk Management Framework (AI RMF 1.0)\nPages: 48 · tables with captions: 4 · figures with captions: 4\nPDF metadata: author: National Institute of Standards and Technology; subject: As directed by the National Artificial Intelligence Initiative Act of 2020 (P.L. 116-283), the goal of the AI RMF is to offer a resource to the organizations designing, developing, deploying, or using AI systems to help manage the many risks of AI and promote trustworthy and responsible development and use of AI systems. The Framework is intended to be voluntary, rights-preserving, non-sector specific, and use-case agnostic, providing flexibility to organizations of all sizes and in all sectors and throughout society to implement the approaches in the Framework. The AI RMF is intended to be practical, to adapt to the AI landscape as AI technologies continue to develop, and to be operationalized by organizations in varying degrees and capacities so society can benefit from AI while also being protected from its potential harms.; keywords: Artificial Intelligence (AI); AI; AI RMF; AI RMF 1.0; AI systems; trustworthy and responsible AI.; creationDate: D:20230124144546-05'00'; modDate: D:20250604130145-04'00'\nOutline (section headings in order): NIST AI 100-1 | Table of Contents | List of Tables | List of Figures | Executive Summary | Part 1: Foundational Information | 1. Framing Risk | 2. Audience | 3. AI Risks and Trustworthiness | 4. Effectiveness of the AI RMF | Part 2: Core and Profiles | 5. AI RMF Core | 6. AI RMF Profiles | Appendix A: | Descriptions of AI Actor Tasks from Figures 2 and 3 | Appendix B: | How AI Risks Differ from Traditional Software Risks | Appendix C: | AI Risk Management and Human-AI Interaction | Appendix D: | Attributes of the AI RMF\nTable and figure captions:\nTable (no caption found)\nFig. 1. Examples of potential harms related to AI systems. Trustworthy AI systems and their responsible use can mitigate negative risks and contribute to benefi\nFig. 2. Lifecycle and Key Dimensions of an AI System. Modified from OECD (2022) OECD Framework for the Classification of AI systems — OECD Digital Economy Paper\nFig. 4. Characteristics of trustworthy AI systems. Valid & Reliable is a necessary condition of trustworthiness and is shown as the base for other trustworthine\nFig. 5. Functions organize AI risk management activities at their highest level to govern, map, measure, and manage AI risks. Governance is designed to be a cro\nTable 1: Categories and subcategories for the GOVERN function.\nTable 1: Categories and subcategories for the GOVERN function. (Continued)\nTable 2: Categories and subcategories for the MAP function.\nTable 2: Categories and subcategories for the MAP …",
+   "summary_status": "ready",
+   "summary_stage": "",
+   "created": 1793926887.7385688
+  },
+  "attention": {
+   "id": "bdfaa68d8984f0dc",
+   "filename": "1706.03762v7.pdf",
+   "sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+   "title": "Attention Is All You Need",
+   "status": "ready",
+   "stage": "ready",
+   "error": "",
+   "num_pages": 15,
+   "num_chunks": 36,
+   "num_tables": 3,
+   "total_tokens": 10568,
+   "retrieval": "hybrid",
+   "card": "Title: Attention Is All You Need\nPages: 15 · tables with captions: 4 · figures with captions: 5\nPDF metadata: creationDate: D:20240410211143Z; modDate: D:20240410211143Z\nAbstract / opening:\nThe dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 Englishto-German translation task, improving over the existing best results, including ensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data. ∗Equal contribution. Listing order is random. Jakob proposed replacing RNNs with self-attention and started the effort to evaluate this idea. Ashish, with Illia, designed and implemented the first Transformer models and has been crucially involved in every aspect of this work. Noam proposed scaled dot-product attention, multi-head attention and the parameter-free position representation and became the other person involved in nearly every detail. Niki designed, implemented, tuned and evaluated countless model variants in our original codebase and …\nOutline (section headings in order): Provided proper attribution is provided, Google hereby grants permission to | reproduce the tables and figures in this paper solely for use in journalistic or | scholarly works. | Abstract | 1 Introduction | 2 Background | 3 Model Architecture | 4 Why Self-Attention | 5 Training | 6 Results | 7 Conclusion | Acknowledgements | References | Attention Visualizations\nTable and figure captions:\nFigure 1: The Transformer - model architecture.\nFigure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several attention layers running in parallel.\nTable 1: Maximum path lengths, per-layer complexity and minimum number of sequential operations for different layer types. n is the sequence length, d is the re\nTable 2: The Transformer achieves better BLEU scores than previous state-of-the-art models on the English-to-German and English-to-French newstest2014 tests at \nTable 3: Variations on the Transformer architecture. Unlisted values are identical to those of the base model. All metrics are on the English-to-German translat\nTable 4: The Transformer generalizes well to English constituency parsing (Results are on Section 23 of WSJ)\nFigure 3: An example of the attention mechanism following long-distance dependencies in the encoder self-attention in layer 5 of 6. Many of …",
+   "summary_status": "ready",
+   "summary_stage": "",
+   "created": 1793929316.305595
+  }
+ },
+ "results": [
+  {
+   "evidence_tokens": 3094,
+   "n_sources": 12,
+   "doc": "lightrag",
+   "type": "metadata",
+   "q": "What is the title of this paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 22.0
+  },
+  {
+   "evidence_tokens": 2212,
+   "n_sources": 8,
+   "doc": "lightrag",
+   "type": "metadata",
+   "q": "Who are the authors?",
+   "pass": true,
+   "missing": [],
+   "seconds": 19.1
+  },
+  {
+   "evidence_tokens": 2811,
+   "n_sources": 10,
+   "doc": "lightrag",
+   "type": "metadata",
+   "q": "Which institutions are the authors affiliated with?",
+   "pass": true,
+   "missing": [],
+   "seconds": 18.9
+  },
+  {
+   "evidence_tokens": 4303,
+   "n_sources": 12,
+   "doc": "lightrag",
+   "type": "fact",
+   "q": "Which datasets are used in the evaluation?",
+   "pass": true,
+   "missing": [],
+   "seconds": 19.6
+  },
+  {
+   "evidence_tokens": 2101,
+   "n_sources": 8,
+   "doc": "lightrag",
+   "type": "table",
+   "q": "How many tokens does the Legal dataset contain?",
+   "pass": true,
+   "missing": [],
+   "seconds": 20.5
+  },
+  {
+   "evidence_tokens": 4362,
+   "n_sources": 9,
+   "doc": "lightrag",
+   "type": "table",
+   "q": "In the ablation study, what is the Overall win rate of the -High variant on the CS dataset?",
+   "pass": true,
+   "missing": [],
+   "seconds": 21.3
+  },
+  {
+   "evidence_tokens": 2128,
+   "n_sources": 5,
+   "doc": "lightrag",
+   "type": "fact",
+   "q": "What does the -Origin variant remove?",
+   "pass": true,
+   "missing": [],
+   "seconds": 23.5
+  },
+  {
+   "evidence_tokens": 1705,
+   "n_sources": 6,
+   "doc": "lightrag",
+   "type": "fact",
+   "q": "How many tokens does GraphRAG consume during retrieval on the Legal dataset?",
+   "pass": true,
+   "missing": [],
+   "seconds": 28.1
+  },
+  {
+   "evidence_tokens": 937,
+   "n_sources": 4,
+   "doc": "lightrag",
+   "type": "fact",
+   "q": "What chunk size is used in the experiments?",
+   "pass": true,
+   "missing": [],
+   "seconds": 25.9
+  },
+  {
+   "evidence_tokens": 2543,
+   "n_sources": 9,
+   "doc": "lightrag",
+   "type": "core",
+   "q": "compare lightRAG with GraphRAG",
+   "pass": true,
+   "missing": [],
+   "seconds": 19.2
+  },
+  {
+   "evidence_tokens": 2488,
+   "n_sources": 6,
+   "doc": "lightrag",
+   "type": "core",
+   "q": "Performance of ablated versions of LightRAG",
+   "pass": true,
+   "missing": [],
+   "seconds": 19.8
+  },
+  {
+   "evidence_tokens": 3427,
+   "n_sources": 12,
+   "doc": "bert",
+   "type": "metadata",
+   "q": "What is the title of this paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 17.0
+  },
+  {
+   "evidence_tokens": 3372,
+   "n_sources": 12,
+   "doc": "bert",
+   "type": "metadata",
+   "q": "Who are the authors?",
+   "pass": true,
+   "missing": [],
+   "seconds": 17.4
+  },
+  {
+   "evidence_tokens": 1939,
+   "n_sources": 7,
+   "doc": "bert",
+   "type": "fact",
+   "q": "How many parameters do BERT-Base and BERT-Large have?",
+   "pass": true,
+   "missing": [],
+   "seconds": 18.4
+  },
+  {
+   "evidence_tokens": 2731,
+   "n_sources": 10,
+   "doc": "bert",
+   "type": "fact",
+   "q": "What percentage of tokens are masked during pre-training?",
+   "pass": true,
+   "missing": [],
+   "seconds": 18.0
+  },
+  {
+   "evidence_tokens": 3004,
+   "n_sources": 10,
+   "doc": "bert",
+   "type": "table",
+   "q": "In the pre-training task ablation, what is the MNLI-m dev accuracy of the No NSP model?",
+   "pass": true,
+   "missing": [],
+   "seconds": 18.4
+  },
+  {
+   "evidence_tokens": 2282,
+   "n_sources": 9,
+   "doc": "bert",
+   "type": "fact",
+   "q": "Which corpora is BERT pre-trained on?",
+   "pass": true,
+   "missing": [],
+   "seconds": 18.3
+  },
+  {
+   "evidence_tokens": 1268,
+   "n_sources": 6,
+   "doc": "bert",
+   "type": "fact",
+   "q": "What GLUE score does BERT achieve?",
+   "pass": true,
+   "missing": [],
+   "seconds": 17.0
+  },
+  {
+   "evidence_tokens": 3182,
+   "n_sources": 12,
+   "doc": "nist",
+   "type": "metadata",
+   "q": "What is the title of this document?",
+   "pass": true,
+   "missing": [],
+   "seconds": 19.3
+  },
+  {
+   "evidence_tokens": 1285,
+   "n_sources": 6,
+   "doc": "nist",
+   "type": "metadata",
+   "q": "Who published this document?",
+   "pass": true,
+   "missing": [],
+   "seconds": 19.5
+  },
+  {
+   "evidence_tokens": 2463,
+   "n_sources": 10,
+   "doc": "nist",
+   "type": "metadata",
+   "q": "When was it published?",
+   "pass": true,
+   "missing": [],
+   "seconds": 18.5
+  },
+  {
+   "evidence_tokens": 2756,
+   "n_sources": 10,
+   "doc": "nist",
+   "type": "fact",
+   "q": "What are the four functions of the AI RMF Core?",
+   "pass": true,
+   "missing": [],
+   "seconds": 18.2
+  },
+  {
+   "evidence_tokens": 2571,
+   "n_sources": 9,
+   "doc": "nist",
+   "type": "fact",
+   "q": "What are the characteristics of trustworthy AI systems?",
+   "pass": true,
+   "missing": [],
+   "seconds": 17.6
+  },
+  {
+   "evidence_tokens": 2958,
+   "n_sources": 10,
+   "doc": "nist",
+   "type": "fact",
+   "q": "Is using the framework mandatory?",
+   "pass": true,
+   "missing": [],
+   "seconds": 18.1
+  },
+  {
+   "evidence_tokens": 1469,
+   "n_sources": 7,
+   "doc": "lightrag",
+   "type": "structure",
+   "q": "Explain Table 4.",
+   "pass": true,
+   "missing": [],
+   "seconds": 20.2
+  },
+  {
+   "evidence_tokens": 3877,
+   "n_sources": 11,
+   "doc": "lightrag",
+   "type": "structure",
+   "q": "What is shown in Figure 2?",
+   "pass": true,
+   "missing": [],
+   "seconds": 18.8
+  },
+  {
+   "evidence_tokens": 4935,
+   "n_sources": 16,
+   "doc": "lightrag",
+   "type": "structure",
+   "q": "What is on page 13?",
+   "pass": true,
+   "missing": [],
+   "seconds": 19.2
+  },
+  {
+   "evidence_tokens": 3419,
+   "n_sources": 13,
+   "doc": "lightrag",
+   "type": "structure",
+   "q": "Summarize Section 5.",
+   "pass": true,
+   "missing": [],
+   "seconds": 20.4
+  },
+  {
+   "evidence_tokens": 3289,
+   "n_sources": 13,
+   "doc": "lightrag",
+   "type": "citation",
+   "q": "Which paper is cited the most in this paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 18.9
+  },
+  {
+   "evidence_tokens": 2127,
+   "n_sources": 9,
+   "doc": "lightrag",
+   "type": "multilingual",
+   "q": "這篇論文的作者是誰？",
+   "pass": true,
+   "missing": [],
+   "seconds": 17.7
+  },
+  {
+   "evidence_tokens": 5381,
+   "n_sources": 12,
+   "doc": "lightrag",
+   "type": "multilingual",
+   "q": "LightRAG 在 Legal 資料集上相對 NaiveRAG 的 Overall 勝率是多少？",
+   "pass": true,
+   "missing": [],
+   "seconds": 20.3
+  },
+  {
+   "evidence_tokens": 1745,
+   "n_sources": 7,
+   "doc": "attention",
+   "type": "metadata",
+   "q": "What is the title of this paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 17.6
+  },
+  {
+   "evidence_tokens": 2023,
+   "n_sources": 8,
+   "doc": "attention",
+   "type": "citation",
+   "q": "Which paper has been referenced the most?",
+   "pass": true,
+   "missing": [],
+   "seconds": 19.1
+  },
+  {
+   "evidence_tokens": 2821,
+   "n_sources": 10,
+   "doc": "attention",
+   "type": "structure",
+   "q": "What is reference [2]?",
+   "pass": true,
+   "missing": [],
+   "seconds": 18.0
+  },
+  {
+   "evidence_tokens": 1769,
+   "n_sources": 6,
+   "doc": "attention",
+   "type": "fact",
+   "q": "What BLEU score does the Transformer achieve on WMT 2014 English-to-German?",
+   "pass": true,
+   "missing": [],
+   "seconds": 19.3
+  }
+ ]
+}

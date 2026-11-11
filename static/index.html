@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DocChat — talk to your documents</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">◆</span> DocChat</div>
+    <div class="health" id="health"><span class="dot"></span><span id="health-text">checking model…</span></div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <label class="dropzone" id="dropzone">
+        <input type="file" id="file" accept=".pdf,.txt,.md" hidden>
+        <strong>Upload a document</strong>
+        <span>PDF, TXT or MD — drop here or click</span>
+      </label>
+      <div class="doc-list-title">Documents</div>
+      <ul class="doc-list" id="doc-list"></ul>
+      <div class="sidebar-note">Parsing is local (PyMuPDF). The LLM only sees text, max <span id="ctx-limit">10,000</span> tokens per call.</div>
+    </aside>
+
+    <main class="chat">
+      <div class="doc-header" id="doc-header" hidden>
+        <div>
+          <div class="doc-title" id="doc-title"></div>
+          <div class="doc-meta" id="doc-meta"></div>
+        </div>
+        <div class="doc-actions">
+          <button class="ghost" id="btn-chunks">Inspect chunks</button>
+          <button class="ghost" id="btn-clear">New chat</button>
+        </div>
+      </div>
+
+      <div class="messages" id="messages">
+        <div class="empty" id="empty">
+          <h1>Chat with your document</h1>
+          <p>Upload a PDF on the left, then ask anything. Answers are grounded in the document with page citations.</p>
+        </div>
+      </div>
+
+      <div class="suggestions" id="suggestions" hidden>
+        <button class="chip">summary this document.</button>
+        <button class="chip">What are the main results?</button>
+        <button class="chip">What are the limitations?</button>
+      </div>
+
+      <form class="composer" id="composer">
+        <textarea id="input" rows="1" placeholder="Upload a document to start…" disabled></textarea>
+        <button type="submit" id="send" disabled>Send</button>
+      </form>
+    </main>
+  </div>
+
+  <dialog id="chunks-dialog">
+    <div class="dialog-head">
+      <strong>How the document was parsed &amp; chunked</strong>
+      <button class="ghost" onclick="this.closest('dialog').close()">Close</button>
+    </div>
+    <div id="chunks-body" class="chunks-body"></div>
+  </dialog>
+
+  <script src="/static/markdown.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

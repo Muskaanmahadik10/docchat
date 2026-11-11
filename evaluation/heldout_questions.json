@@ -1,0 +1,26 @@
+{
+  "_about": "Held-out evaluation. Document: Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (arXiv 2005.11401v4). The document was not used during development. Questions and expected strings were written before the system processed the document, from text extracted with a different library (pypdf); the most-cited reference was counted with a separate script. Run once; results reported as measured.",
+  "documents": {
+    "rag": {"source": "https://arxiv.org/pdf/2005.11401v4", "layout": "NeurIPS paper, numeric [n] citations, results tables"}
+  },
+  "questions": [
+    {"doc": "rag", "type": "metadata", "q": "What is the title of this paper?", "all": ["Retrieval-Augmented Generation", "Knowledge-Intensive"]},
+    {"doc": "rag", "type": "metadata", "q": "Who is the first author?", "all": ["Patrick Lewis"]},
+    {"doc": "rag", "type": "metadata", "q": "Which institutions are the authors from?", "all": ["Facebook AI Research"], "any": [["University College London", "UCL"]]},
+    {"doc": "rag", "type": "fact", "q": "What are the two RAG formulations proposed in the paper?", "all": ["RAG-Sequence", "RAG-Token"]},
+    {"doc": "rag", "type": "fact", "q": "Which retriever does RAG use?", "any": [["DPR", "Dense Passage Retriev"]]},
+    {"doc": "rag", "type": "fact", "q": "Which generator model is used, and how many parameters does it have?", "all": ["BART"], "any": [["400M", "400 million"]]},
+    {"doc": "rag", "type": "fact", "q": "How many documents are in the retrieval index?", "any": [["21M", "21 million"]]},
+    {"doc": "rag", "type": "fact", "q": "Which Wikipedia dump is used as the knowledge source?", "all": ["December 2018"]},
+    {"doc": "rag", "type": "table", "q": "What exact match score does RAG-Sequence get on Natural Questions?", "all": ["44.5"]},
+    {"doc": "rag", "type": "table", "q": "What score does RAG-Token get on WebQuestions?", "all": ["45.5"]},
+    {"doc": "rag", "type": "structure", "q": "Explain Table 1.", "any": [["open-domain", "Open-Domain"]]},
+    {"doc": "rag", "type": "fact", "q": "What hardware was used for training?", "all": ["V100"]},
+    {"doc": "rag", "type": "comparison", "q": "Compare RAG-Sequence with RAG-Token.", "all": ["RAG-Sequence", "RAG-Token"]},
+    {"doc": "rag", "type": "core", "q": "summary this document.", "all": ["retriev"], "any": [["generat"]]},
+    {"doc": "rag", "type": "list", "q": "List all the tasks RAG is evaluated on.", "all": ["Jeopardy"], "any": [["Natural Questions", "NQ"], ["FEVER"]]},
+    {"doc": "rag", "type": "citation", "q": "Which paper is cited the most?", "any": [["Karpukhin", "Dense passage retriev", "Dense Passage Retriev"]]},
+    {"doc": "rag", "type": "multilingual", "q": "這篇論文的第一作者是誰？", "all": ["Patrick Lewis"]},
+    {"doc": "rag", "type": "abstain", "q": "What score does RAG achieve on WMT14 English-German translation?", "abstain": true}
+  ]
+}

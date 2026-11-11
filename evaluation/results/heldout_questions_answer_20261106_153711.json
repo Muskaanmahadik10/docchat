@@ -1,0 +1,937 @@
+{
+ "mode": "answer",
+ "health": {
+  "llm": {
+   "provider": "ollama",
+   "model": "qwen2.5:14b",
+   "ok": true,
+   "detail": "model available"
+  },
+  "embeddings": {
+   "provider": "ollama",
+   "model": "nomic-embed-text"
+  },
+  "rerank": {
+   "model": "BAAI/bge-reranker-base",
+   "enabled": true,
+   "error": ""
+  },
+  "max_context_tokens": 10000,
+  "answer_max_tokens": 1200
+ },
+ "docs": {
+  "rag": {
+   "id": "23e3249e9a1e7541",
+   "filename": "2005.11401.pdf",
+   "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+   "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+   "status": "ready",
+   "stage": "ready",
+   "error": "",
+   "num_pages": 19,
+   "num_chunks": 74,
+   "num_tables": 4,
+   "total_tokens": 19602,
+   "retrieval": "hybrid",
+   "card": "Title: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks\nPages: 19 · tables with captions: 7 · figures with captions: 4\nPDF metadata: creationDate: D:20210413004838Z; modDate: D:20210413004838Z\nFront matter (authors, affiliations, contact; first page, before the first heading):\nPatrick Lewis†‡, Ethan Perez⋆,\nAleksandra Piktus†, Fabio Petroni†, Vladimir Karpukhin†, Naman Goyal†, Heinrich Küttler†,\nMike Lewis†, Wen-tau Yih†, Tim Rocktäschel†‡, Sebastian Riedel†‡, Douwe Kiela†\n†Facebook AI Research; ‡University College London; ⋆New York University;\nplewis@fb.com\nAbstract / opening:\nLarge pre-trained language models have been shown to store factual knowledge in their parameters, and achieve state-of-the-art results when ﬁne-tuned on downstream NLP tasks. However, their ability to access and precisely manipulate knowledge is still limited, and hence on knowledge-intensive tasks, their performance lags behind task-speciﬁc architectures. Additionally, providing provenance for their decisions and updating their world knowledge remain open research problems. Pretrained models with a differentiable access mechanism to explicit non-parametric memory have so far been only investigated for extractive downstream tasks. We explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric memory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We compare two RAG formulations, one which conditions on the same retrieved passages across the whole generated sequence, and another which can use different passages per token. We ﬁne-tune and evaluate our models on a wide range of knowledgeintensive NLP tasks and set the state of the art on three open domain QA tasks, outperforming parametric seq2seq models and task-speciﬁc retrieve-and-extract architectures. For language generation tasks, we ﬁnd that RAG models generate more speciﬁc, diverse and factual language than a state-of-the-art parametric-only seq2seq baseline.\nOutline (section headings in order): Abstract | 1 Introduction | 2 Methods | 3 Experiments | 4 Results | 5 Related Work | 6 Discussion | Broader Impact | Acknowledgments | References | Appendices for Retrieval-Augmented Generation for | A Implementation Details | B Human Evaluation | C Training setup Details | D Further Details on Open-Domain QA | E Further Details on FEVER | F Null Document Probabilities | G Parameters | H Retrieval Collapse | I Number of instances per dataset\nTable and figure captions:\nFigure 1: Overview of our approach. We combine a pre-trained retriever (Query Encoder + Document Index) with a pre-trained seq2seq model (Generator) and ﬁne-tun\nTable 2: Generation and classiﬁcation Test Scores. MS-MARCO SotA is [4], FEVER-3 is [68] and FEVER-2 is [57] *Uses gold context/evidence. Best model without gol\nTable 1: Open-Domain QA Test Scores. For TQA, left column uses the standard test set for Open- Domain QA, right column uses the TQA-Wiki test set. See Appendix \nFigure 2: RAG-Token document posterior p(zi|x, yi, y−i) for each generated token for input “Hemingway\" for Jeopardy generation with 5 retrieved documents. The p\nTable 3: Examples from generation tasks. RAG models generate more …",
+   "summary_status": "ready",
+   "summary_stage": "ready",
+   "created": 1793949429.4390001
+  }
+ },
+ "results": [
+  {
+   "answer": "The title of this paper is \"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks\" [D]. The term \"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks\" appears 0 times in the document according to the term count [C].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "title paper"
+    ],
+    "count_terms": [
+     "title of this paper",
+     "document title",
+     "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+     "paper title"
+    ],
+    "standalone": "What is the title of this paper?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 374,
+     "actual_prompt_tokens": 367,
+     "actual_output_tokens": 53,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.4
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4462,
+     "actual_prompt_tokens": 4673,
+     "actual_output_tokens": 59,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 12.5
+    }
+   ],
+   "doc": "rag",
+   "type": "metadata",
+   "q": "What is the title of this paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 36.7
+  },
+  {
+   "answer": "The first author of the document is Patrick Lewis [D].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 372,
+     "actual_prompt_tokens": 365,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.1
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4457,
+     "actual_prompt_tokens": 4803,
+     "actual_output_tokens": 13,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.7
+    }
+   ],
+   "doc": "rag",
+   "type": "metadata",
+   "q": "Who is the first author?",
+   "pass": true,
+   "missing": [],
+   "seconds": 46.4
+  },
+  {
+   "answer": "- Facebook AI Research [L1]\n- University College London [L1]\n- New York University [L1]",
+   "error": null,
+   "plan": {
+    "intent": "list",
+    "queries": [
+     "authors institutions",
+     "affiliations",
+     "author affiliations"
+    ],
+    "count_terms": [
+     "author",
+     "institution",
+     "affiliation",
+     "institutions"
+    ],
+    "standalone": "Which institutions are the authors from?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 373,
+     "actual_prompt_tokens": 366,
+     "actual_output_tokens": 49,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.5
+    },
+    {
+     "call": "list-map 1/4",
+     "est_prompt_tokens": 3359,
+     "actual_prompt_tokens": 3366,
+     "actual_output_tokens": 49,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 9.6
+    },
+    {
+     "call": "list-map 2/4",
+     "est_prompt_tokens": 3279,
+     "actual_prompt_tokens": 3349,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 6.8
+    },
+    {
+     "call": "list-map 3/4",
+     "est_prompt_tokens": 3163,
+     "actual_prompt_tokens": 3284,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 6.6
+    },
+    {
+     "call": "list-map 4/4",
+     "est_prompt_tokens": 2823,
+     "actual_prompt_tokens": 2933,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.8
+    },
+    {
+     "call": "list-answer",
+     "est_prompt_tokens": 1086,
+     "actual_prompt_tokens": 1092,
+     "actual_output_tokens": 25,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.1
+    }
+   ],
+   "doc": "rag",
+   "type": "metadata",
+   "q": "Which institutions are the authors from?",
+   "pass": true,
+   "missing": [],
+   "seconds": 37.5
+  },
+  {
+   "answer": "The paper proposes two RAG formulations:\n\n- **RAG-Sequence Model**: This model uses the same retrieved document to generate the complete sequence. It treats the retrieved document as a single latent variable that is marginalized to get the seq2seq probability [S3].\n\n- **RAG-Token Model**: This model can draw a different latent document for each target token and marginalizes accordingly, allowing the generator to choose content from several documents when producing an answer [S3].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 378,
+     "actual_prompt_tokens": 371,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 18.0
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 5304,
+     "actual_prompt_tokens": 5391,
+     "actual_output_tokens": 95,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 15.0
+    }
+   ],
+   "doc": "rag",
+   "type": "fact",
+   "q": "What are the two RAG formulations proposed in the paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 52.5
+  },
+  {
+   "answer": "RAG uses a retriever based on DPR [S6].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 374,
+     "actual_prompt_tokens": 367,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.7
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4089,
+     "actual_prompt_tokens": 4099,
+     "actual_output_tokens": 14,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 6.8
+    }
+   ],
+   "doc": "rag",
+   "type": "fact",
+   "q": "Which retriever does RAG use?",
+   "pass": true,
+   "missing": [],
+   "seconds": 46.4
+  },
+  {
+   "answer": "The generator model used is BART-large [S1], which has 400M parameters [S1].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 380,
+     "actual_prompt_tokens": 373,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.7
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3204,
+     "actual_prompt_tokens": 3304,
+     "actual_output_tokens": 25,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.6
+    }
+   ],
+   "doc": "rag",
+   "type": "fact",
+   "q": "Which generator model is used, and how many parameters does it have?",
+   "pass": true,
+   "missing": [],
+   "seconds": 44.2
+  },
+  {
+   "answer": "The retrieval index contains 21 million documents [S1].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "number of documents retrieval index"
+    ],
+    "count_terms": [
+     "documents",
+     "retrieval index",
+     "index size",
+     "number of documents in index"
+    ],
+    "standalone": "How many documents are in the retrieval index?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 375,
+     "actual_prompt_tokens": 368,
+     "actual_output_tokens": 47,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.0
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 2539,
+     "actual_prompt_tokens": 2586,
+     "actual_output_tokens": 14,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.2
+    }
+   ],
+   "doc": "rag",
+   "type": "fact",
+   "q": "How many documents are in the retrieval index?",
+   "pass": true,
+   "missing": [],
+   "seconds": 28.3
+  },
+  {
+   "answer": "The Wikipedia dump used as the knowledge source is the December 2018 dump [S1].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "Wikipedia dump knowledge source"
+    ],
+    "count_terms": [
+     "Wikipedia dump",
+     "knowledge source",
+     "used as",
+     "knowledge source used as Wikipedia dump"
+    ],
+    "standalone": "Which Wikipedia dump is used as the knowledge source?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 376,
+     "actual_prompt_tokens": 369,
+     "actual_output_tokens": 47,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 3.9
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 2917,
+     "actual_prompt_tokens": 2985,
+     "actual_output_tokens": 22,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.8
+    }
+   ],
+   "doc": "rag",
+   "type": "fact",
+   "q": "Which Wikipedia dump is used as the knowledge source?",
+   "pass": true,
+   "missing": [],
+   "seconds": 30.6
+  },
+  {
+   "answer": "According to Table 1 in the document, RAG-Sequence achieves an Exact Match score of 54.8 on Natural Questions [S6].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 380,
+     "actual_prompt_tokens": 373,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.6
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3990,
+     "actual_prompt_tokens": 4113,
+     "actual_output_tokens": 32,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.3
+    }
+   ],
+   "doc": "rag",
+   "type": "table",
+   "q": "What exact match score does RAG-Sequence get on Natural Questions?",
+   "pass": false,
+   "missing": [
+    "44.5"
+   ],
+   "seconds": 46.6
+  },
+  {
+   "answer": "The document does not provide a specific score for RAG-Token on the WebQuestions dataset. However, it mentions that WebQuestions is one of the datasets used for evaluation [S3]. For detailed scores, the document focuses more on summarizing comparative performance rather than listing individual scores for each dataset and model variant [S1]. Therefore, the exact score for RAG-Token on WebQuestions is not supported by the provided sources.",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "RAG-Token score WebQuestions"
+    ],
+    "count_terms": [
+     "RAG-Token",
+     "WebQuestions",
+     "score",
+     "result"
+    ],
+    "standalone": "What score does RAG-Token get on WebQuestions?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 377,
+     "actual_prompt_tokens": 370,
+     "actual_output_tokens": 43,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 3.4
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3784,
+     "actual_prompt_tokens": 3831,
+     "actual_output_tokens": 86,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 10.5
+    }
+   ],
+   "doc": "rag",
+   "type": "table",
+   "q": "What score does RAG-Token get on WebQuestions?",
+   "pass": false,
+   "missing": [
+    "45.5"
+   ],
+   "seconds": 32.2
+  },
+  {
+   "answer": "Table 1 provides test scores for open-domain question answering tasks. It compares various models including T5-11B, T5-11B+SSM, REALM, DPR, RAG-Token, and RAG-Sequence. The table is structured as follows:\n\n- **Models**: Different models are listed in rows, including state-of-the-art (SotA) models.\n- **Tasks**: Various tasks are listed in columns, such as Closed, Book, Jeopardy, MSMARCO, FVR3, and FVR2.\n- **Scores**: Test scores for each model-task combination are provided. Some entries are marked with symbols like \"*\", \"/\", or \"-\", indicating specific conditions or missing data.\n\nHere are the key points from Table 1:\n\n- **Closed T5-11B**: This model scores 34.5 on the Closed task and 37.4 on the Jeopardy task.\n- **Book T5-11B+SSM**: This model scores 36.6 on the Book task and 44.7 on the Jeopardy task.\n- **REALM**: This model scores 40.4 on the Book task and 46.8 on the FVR2 task.\n- **DPR**: This model scores 41.5 on the Book task and 50.6 on the FVR2 task.\n- **RAG-Token**: This model scores 44.1 on the Book task and 55.2 on the Jeopardy task.\n- **RAG-Sequence**: This model scores 44.5 on the Book task and 56.8 on the Jeopardy task.\n\nRAG models (RAG-Token and RAG-Sequence) outperform other models on most tasks, setting new state-of-the-art results [S1].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 371,
+     "actual_prompt_tokens": 364,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.8
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3356,
+     "actual_prompt_tokens": 3428,
+     "actual_output_tokens": 385,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 28.8
+    }
+   ],
+   "doc": "rag",
+   "type": "structure",
+   "q": "Explain Table 1.",
+   "pass": true,
+   "missing": [],
+   "seconds": 65.9
+  },
+  {
+   "answer": "The training was conducted using 8, 32GB NVIDIA V100 GPUs with mixed precision floating point arithmetic [S3].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 373,
+     "actual_prompt_tokens": 366,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 20.0
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 2713,
+     "actual_prompt_tokens": 2746,
+     "actual_output_tokens": 29,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.2
+    }
+   ],
+   "doc": "rag",
+   "type": "fact",
+   "q": "What hardware was used for training?",
+   "pass": true,
+   "missing": [],
+   "seconds": 43.2
+  },
+  {
+   "answer": "### Comparison of RAG-Sequence and RAG-Token\n\n- **Retrieval Mechanism**:\n  - **RAG-Sequence**: Uses the same retrieved document to generate the complete sequence. This means the model relies on a single document for the entire generation process [S4].\n  - **RAG-Token**: Can draw a different latent document for each target token, allowing the generator to choose content from several documents when producing an answer [S4].\n\n- **Training and Decoding**:\n  - **RAG-Sequence**: At test time, it requires a different way to approximate arg maxy p(y|x) compared to RAG-Token [S2].\n  - **RAG-Token**: Uses a standard beam decoder for decoding [S2].\n\n- **Performance on Tasks**:\n  - **Jeopardy Question Generation**: RAG-Token outperforms RAG-Sequence on Jeopardy question generation, with both models outperforming BART on Q-BLEU-1 [S3].\n  - **Open-Domain QA**: RAG-Sequence's performance peaks with 50 retrieved documents, while RAG-Token's performance peaks with 10 retrieved documents [S7].\n  - **FEVER**: Both RAG models are equivalent as FEVER is a classification task [S6].\n\n- **Diversity of Generation**:\n  - **RAG-Sequence**: Generates more diverse sequences compared to RAG-Token [S1].\n\n- **Ablation Studies**:\n  - **Retrieval Ablations**: Learned retrieval improves results for all tasks, and RAG-Token shows better performance when using learned retrieval compared to BM25 retrieval [S1].\n\n- **Flexibility**:\n  - **RAG-Token**: Can adjust the number of retrieved documents at test time, which can affect performance and runtime [S7].\n  - **RAG-Sequence**: Also flexible in adjusting the number of retrieved documents, but performance does not improve significantly beyond a certain point [S7].\n\n- **Human Evaluation**:\n  - **Jeopardy Question Generation**: RAG-Token is more factual and specific compared to BART, as indicated by human evaluators [S3].\n\n- **Implementation Details**:\n  - **RAG-Sequence**: Uses thorough decoding for QA tasks, while RAG-Token uses a beam size of four [S10].\n\nIn summary, RAG-Token is more flexible in using different documents per token and tends to perform better on tasks like Jeopardy question generation, while RAG-Sequence is better suited for tasks where a single document context is sufficient and can generate more diverse sequences [S1, S3, S7, S10].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "RAG-Sequence architecture",
+     "RAG-Token architecture",
+     "RAG-Sequence experimental results",
+     "RAG-Token experimental results"
+    ],
+    "count_terms": [
+     "RAG-Sequence",
+     "RAG-Token",
+     "architecture",
+     "experimental results"
+    ],
+    "standalone": "Compare RAG-Sequence with RAG-Token.",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 415,
+     "actual_prompt_tokens": 408,
+     "actual_output_tokens": 73,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.6
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4608,
+     "actual_prompt_tokens": 4723,
+     "actual_output_tokens": 551,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 42.1
+    }
+   ],
+   "doc": "rag",
+   "type": "comparison",
+   "q": "Compare RAG-Sequence with RAG-Token.",
+   "pass": true,
+   "missing": [],
+   "seconds": 68.6
+  },
+  {
+   "answer": "**Gist:** The document introduces Retrieval-Augmented Generation (RAG) models that combine pre-trained language models with neural retrievers to access non-parametric memory, achieving state-of-the-art results on knowledge-intensive NLP tasks [N1].\n\n**Problem & Motivation:** Large pre-trained language models struggle with precise knowledge manipulation and providing provenance for their decisions. RAG models aim to address these issues by integrating parametric and non-parametric memory, enabling them to perform well on tasks like open-domain QA, abstractive QA, Jeopardy question generation, and fact verification [N1].\n\n**Approach / Method:** RAG models use a pre-trained retriever to access a dense vector index of Wikipedia, retrieving relevant documents that are used as context for a pre-trained seq2seq model during generation. Two formulations are introduced: RAG-Sequence, which uses the same retrieved passages across the whole generated sequence, and RAG-Token, which can use different passages per token [N1].\n\n**Key Results:** RAG models set state-of-the-art results on three open-domain QA tasks, outperforming parametric-only seq2seq models and task-specific retrieve-and-extract architectures. They also achieve strong performance on abstractive QA, Jeopardy question generation, and fact verification tasks, generating more factual and specific language compared to a state-of-the-art parametric-only baseline [N2].\n\n**Conclusions and Limitations:** RAG models effectively combine the flexibility of generation with the precision of retrieval, achieving strong performance across various NLP tasks. However, they rely on Wikipedia and may suffer from hallucination in unanswerable questions. Future work could explore joint pre-training of parametric and non-parametric components [N3].",
+   "error": null,
+   "plan": {
+    "intent": "summary",
+    "queries": [],
+    "source": "rule"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "summary-answer",
+     "est_prompt_tokens": 3203,
+     "actual_prompt_tokens": 3233,
+     "actual_output_tokens": 354,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 28.6
+    }
+   ],
+   "doc": "rag",
+   "type": "core",
+   "q": "summary this document.",
+   "pass": true,
+   "missing": [],
+   "seconds": 28.6
+  },
+  {
+   "answer": "- open-domain QA tasks [L1]\n- TriviaQA [L1]\n- Natural Questions [L1]\n- WebQuestions [L1]\n- CuratedTrec [L1]\n- MS-MARCO [L1]\n- Jeopardy question generation [L1]\n- FEVER [L1]\n- Open-domain Question Answering [L2]\n- Abstractive Question Answering [L2]\n- Jeopardy Question Generation [L2]\n- Fact Verification [L2]\n- Fact Verification (3-way classification) [L3]\n- Jeopardy Question Generation [L3]\n- Open-Domain QA [L3]\n- Index hot-swapping [L3]\n- Retrieval Ablations [L3]\n- Generation Diversity [L3]\n- Effect of Retrieving more documents [L3]\n- Human assessments for the Jeopardy Question Generation Task [L3]\n\nNote: Some items are listed under different names but refer to the same task, such as \"Jeopardy Question Generation\" and \"Human assessments for the Jeopardy Question Generation Task\". These are kept separate to reflect the document's presentation.",
+   "error": null,
+   "plan": {
+    "intent": "list",
+    "queries": [
+     "tasks RAG evaluated",
+     "RAG evaluation tasks",
+     "knowledge-intensive NLP tasks RAG"
+    ],
+    "count_terms": [
+     "RAG",
+     "tasks",
+     "evaluation",
+     "knowledge-intensive NLP tasks RAG evaluated on"
+    ],
+    "standalone": "List all the tasks RAG is evaluated on.",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 376,
+     "actual_prompt_tokens": 369,
+     "actual_output_tokens": 61,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.3
+    },
+    {
+     "call": "list-map 1/4",
+     "est_prompt_tokens": 3362,
+     "actual_prompt_tokens": 3369,
+     "actual_output_tokens": 199,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 18.3
+    },
+    {
+     "call": "list-map 2/4",
+     "est_prompt_tokens": 3282,
+     "actual_prompt_tokens": 3352,
+     "actual_output_tokens": 153,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 15.9
+    },
+    {
+     "call": "list-map 3/4",
+     "est_prompt_tokens": 3166,
+     "actual_prompt_tokens": 3287,
+     "actual_output_tokens": 231,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 20.4
+    },
+    {
+     "call": "list-map 4/4",
+     "est_prompt_tokens": 2826,
+     "actual_prompt_tokens": 2936,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 6.0
+    },
+    {
+     "call": "list-answer",
+     "est_prompt_tokens": 1614,
+     "actual_prompt_tokens": 1623,
+     "actual_output_tokens": 237,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 15.8
+    }
+   ],
+   "doc": "rag",
+   "type": "list",
+   "q": "List all the tasks RAG is evaluated on.",
+   "pass": true,
+   "missing": [],
+   "seconds": 81.8
+  },
+  {
+   "answer": "The paper cited the most is [26] by Vladimir Karpukhin et al., which is cited 10 times. [R]",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "most cited paper",
+     "citations count",
+     "paper citation frequency"
+    ],
+    "count_terms": [
+     "cited",
+     "citations",
+     "referenced",
+     "mentioned by other papers count in document text or references section."
+    ],
+    "standalone": "Which paper is cited the most?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 373,
+     "actual_prompt_tokens": 366,
+     "actual_output_tokens": 62,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.4
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4560,
+     "actual_prompt_tokens": 4819,
+     "actual_output_tokens": 31,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 9.2
+    }
+   ],
+   "doc": "rag",
+   "type": "citation",
+   "q": "Which paper is cited the most?",
+   "pass": true,
+   "missing": [],
+   "seconds": 28.6
+  },
+  {
+   "answer": "這篇論文的第一作者是Patrick Lewis [D].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 383,
+     "actual_prompt_tokens": 369,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 20.3
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4520,
+     "actual_prompt_tokens": 4772,
+     "actual_output_tokens": 13,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.5
+    }
+   ],
+   "doc": "rag",
+   "type": "multilingual",
+   "q": "這篇論文的第一作者是誰？",
+   "pass": true,
+   "missing": [],
+   "seconds": 44.5
+  },
+  {
+   "answer": "The document does not contain information about the WMT14 English-German translation task or any scores related to it. The sources provided do not mention WMT14 or English-German translation. [C] shows there are no occurrences of \"WMT14\" or \"English-German\" in the document. Therefore, the score RAG achieves on WMT14 English-German translation cannot be determined from the given sources.",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "RAG score WMT14 English-German translation"
+    ],
+    "count_terms": [
+     "RAG",
+     "WMT14",
+     "English-German",
+     "score"
+    ],
+    "standalone": "What score does RAG achieve on WMT14 English-German translation?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 381,
+     "actual_prompt_tokens": 375,
+     "actual_output_tokens": 51,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.2
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3524,
+     "actual_prompt_tokens": 3581,
+     "actual_output_tokens": 90,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 10.2
+    }
+   ],
+   "doc": "rag",
+   "type": "abstain",
+   "q": "What score does RAG achieve on WMT14 English-German translation?",
+   "pass": true,
+   "missing": [],
+   "seconds": 30.1
+  }
+ ]
+}

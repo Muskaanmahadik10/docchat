@@ -1,0 +1,312 @@
+{
+ "runs": [
+  {
+   "answer": "1. **One-sentence gist**\nLightRAG is a graph-empowered Retrieval-Augmented Generation (RAG) framework that integrates knowledge graphs with vector representations to achieve faster, more comprehensive, and cost-effective information retrieval compared to existing flat or community-based RAG systems [D] [N1].\n\n2. **Problem & motivation**\nExisting RAG systems rely on flat data representations and lack contextual awareness, leading to fragmented answers that fail to capture complex inter-dependencies between entities [N1]. Current graph-based approaches often suffer from inefficient brute-force searches, lack dynamic update capabilities, and incur high computational costs due to community traversal [N4]. There is a need for a system that can handle varying query volumes, maintain coherence, and rapidly adapt to new data without rebuilding the entire index [N1].\n\n3. **Approach / method**\nLightRAG employs a graph-based text indexing process where documents are segmented into chunks, and an LLM extracts entities (nodes) and relationships (edges) to form a knowledge graph [N1]. The system utilizes a dual-level retrieval paradigm:\n*   **Low-level retrieval:** Focuses on specific entities and their immediate one-hop neighboring nodes and edges [N2].\n*   **High-level retrieval:** Captures broader themes and abstract topics [N1].\nThis approach combines keyword matching with structural graph information to enhance result comprehensiveness [N2]. Additionally, LightRAG features an incremental update algorithm that merges new entities and relationships into the existing graph via union, avoiding the need for full index reconstruction [N1] [N4]. Answer generation is performed by a general-purpose LLM using concatenated values from entity/relation profiling, including names, descriptions, and original text excerpts [N2].\n\n4. **Key results (with exact numbers)**\n*   **Performance vs. Baselines:** LightRAG consistently outperforms Naive RAG, RQ-RAG, and HyDE across all datasets and evaluation dimensions [N2]. In ablation studies, the full LightRAG model achieved Overall Win Rates against NaiveRAG of **84.8%** (Legal), **67.6%** (Agriculture), **61.2%** (CS), and **60.0%** (Mix) [N3].\n*   **Ablation Impact:** Removing high-level retrieval (-High) reduced the Overall Win Rate on the Legal dataset to **78.0%**, while removing low-level retrieval (-Low) reduced it to **81.2%** [N3]. Removing original text from retrieval (-Origin) did not significantly hurt performance and even improved results in some cases (e.g., Agriculture to **74.4%**) [N3].\n*   **Cost Efficiency:** On the Legal dataset, GraphRAG required approximately **610,000 tokens** for retrieval (using 610 level-2 communities) and hundreds of API calls [N4]. In contrast, LightRAG used fewer than **100 tokens** for keyword generation and retrieval, requiring only a **single API call** [N4].\n*   **Update Overhead:** Adding a dataset of the same size as the Legal dataset to GraphRAG would cost approximately **$1,399 \\times 2 \\times 5,000$ tokens** (approx. 13.99 million tokens) due to community regeneration, whereas LightRAG integrates new data with significantly lower overhead [N4].\n\n5. **Conclusions and limitations**\nLightRAG successfully integrates graph-based indexing to enhance RAG efficiency and comprehension, improving retrieval speed and quality while reducing LLM inference costs [N4]. The dual-level retrieval paradigm ensures the extraction of both specific and abstract information, and seamless incremental updates keep the system current [N4]. While the document highlights significant improvements in efficiency and accuracy, it notes that performance against GraphRAG is mixed in some dimensions (e.g., trailing or tying in Comprehensiveness/Empowerment on some datasets), though LightRAG leads in Diversity [N2]. The system relies on LLMs for entity extraction and keyword generation, which may introduce latency or cost depending on the specific LLM used, though the architecture is designed to minimize these overheads [N2] [N4].",
+   "error": null,
+   "intent": "summary",
+   "invalid_citations": [],
+   "ungrounded_numbers": [
+    "13.99"
+   ],
+   "misattributed_numbers": [],
+   "ledger": [
+    {
+     "call": "summary-answer",
+     "actual_prompt_tokens": 3512,
+     "actual_output_tokens": 899,
+     "max_output_tokens": 1800,
+     "within_limit": true,
+     "seconds": 2.2
+    }
+   ],
+   "summary_ledger": [
+    {
+     "call": "summary-map 1/4",
+     "actual_prompt_tokens": 4038,
+     "actual_output_tokens": 600
+    },
+    {
+     "call": "summary-map 2/4",
+     "actual_prompt_tokens": 4327,
+     "actual_output_tokens": 600
+    },
+    {
+     "call": "summary-map 3/4",
+     "actual_prompt_tokens": 4163,
+     "actual_output_tokens": 600
+    },
+    {
+     "call": "summary-map 4/4",
+     "actual_prompt_tokens": 3502,
+     "actual_output_tokens": 600
+    }
+   ],
+   "rubric_pass": true,
+   "rubric_missing": [],
+   "round": 1,
+   "q": "summary this document.",
+   "seconds": 244.3
+  },
+  {
+   "answer": "Based on the provided sources, LightRAG and GraphRAG are both graph-based Retrieval-Augmented Generation (RAG) systems, but LightRAG demonstrates superior performance in accuracy, diversity, and efficiency, particularly on large-scale datasets.\n\n### Performance Comparison\nLightRAG consistently outperforms GraphRAG, especially in datasets with millions of tokens and complex language contexts [S4].\n\n*   **Win Rates:** In the largest dataset (Legal), baseline methods (including GraphRAG) achieved only about 20% win rates compared to the dominance of LightRAG [S5].\n*   **Evaluation Dimensions:** In a specific case study comparing the two on a machine learning question, LightRAG outperformed GraphRAG in all four LLM-judged dimensions: comprehensiveness, diversity, empowerment, and overall quality [S1] [S7].\n*   **Response Quality:** LightRAG provides a broader range of information and more empowering content due to its hierarchical retrieval paradigm, which combines in-depth low-level entity retrieval with broader high-level topic exploration [S1] [S6].\n\n### Efficiency and Cost Comparison\nLightRAG is significantly more efficient in terms of token usage and API calls during both retrieval and incremental updates, as detailed in the analysis of the Legal dataset [S2] [S6].\n\n| Phase | Metric | GraphRAG | LightRAG |\n| :--- | :--- | :--- | :--- |\n| **Retrieval** | Tokens | 610,000 (610 communities × 1,000 tokens) | < 100 |\n| | API Calls | Hundreds (traversing each community) | 1 |\n| **Incremental Update** | Tokens | ~1,399 × 2 × 5,000 (reconstruction of all communities) | $T_{extract} + T_{extract}$ (integration only) |\n| | API Calls | 1,399 × 2 + $C_{extract}$ | $C_{extract}$ |\n\n*   **Retrieval Mechanism:** GraphRAG requires traversing each community individually, leading to hundreds of API calls and high token consumption [S2]. LightRAG uses a single API call and fewer than 100 tokens for keyword generation and retrieval by integrating graph structures with vectorized representations [S2] [S6].\n*   **Incremental Updates:** When new data is introduced, GraphRAG must dismantle its existing community structure and regenerate all community reports, incurring a substantial token cost (approximately 5,000 tokens per community report) [S2]. LightRAG seamlessly integrates new entities and relationships into the existing graph without full reconstruction, resulting in significantly lower overhead [S2] [S6].\n\n### Architectural Differences\n*   **Retrieval Paradigm:** LightRAG employs a dual-level retrieval paradigm that captures both low-level (specific entities) and high-level (broader topics) information [S3] [S4]. GraphRAG relies on a community-based traversal method [S9].\n*   **Indexing:** Both systems use LLMs to extract entities and relationships from text chunks [S9]. However, LightRAG’s approach eliminates the need to rebuild the entire index for updates, reducing computational costs [S3].\n\n### Conclusion\nWhile both systems leverage graph structures, LightRAG offers a more cost-effective and accurate solution. It achieves higher win rates and better response diversity while drastically reducing the token and API call overhead associated with retrieval and data updates compared to GraphRAG [S2] [S4] [S5].",
+   "error": null,
+   "intent": "question",
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "misattributed_numbers": [],
+   "ledger": [
+    {
+     "call": "plan",
+     "actual_prompt_tokens": 425,
+     "actual_output_tokens": 100,
+     "max_output_tokens": 400,
+     "within_limit": true,
+     "seconds": 17.6
+    },
+    {
+     "call": "answer",
+     "actual_prompt_tokens": 4144,
+     "actual_output_tokens": 771,
+     "max_output_tokens": 1800,
+     "within_limit": true,
+     "seconds": 2.1
+    }
+   ],
+   "summary_ledger": [],
+   "rubric_pass": true,
+   "rubric_missing": [],
+   "round": 1,
+   "q": "compare lightRAG with GraphRAG",
+   "seconds": 60.3
+  },
+  {
+   "answer": "Based on the provided sources, the performance of the ablated versions of LightRAG is detailed in **Table 2** (pages 8) [S1, S2]. The ablation study compares the full LightRAG model against variants where specific components are removed, using **NaiveRAG** as the reference baseline. The metrics reported are win rates (%) across four datasets: Agriculture, CS (Computer Science), Legal, and Mix.\n\nThe ablated versions tested are:\n1.  **LightRAG (Full)**: The complete model.\n2.  **-High**: Removes high-level retrieval (low-level only).\n3.  **-Low**: Removes low-level retrieval (high-level only).\n4.  **-Origin**: Removes the use of original text in retrieval (semantic graph only).\n\n### Performance Metrics (Win Rates %)\n\nThe following table summarizes the win rates for the ablated versions compared to NaiveRAG. Note that the values for the ablated variants represent their win rate against NaiveRAG, not directly against the full LightRAG.\n\n| Variant | Metric | Agriculture | CS | Legal | Mix |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **LightRAG (Full)** | Comprehensiveness | 67.6% | 61.6% | 83.6% | 61.2% |\n| | Diversity | 76.4% | 62.0% | 86.4% | 67.6% |\n| | Empowerment | 67.6% | 61.2% | 83.6% | 57.2% |\n| | Overall | 67.6% | 61.2% | 84.8% | 60.0% |\n| **-High** (No High-level) | Comprehensiveness | 65.2% | 57.2% | 76.4% | 59.6% |\n| | Diversity | 72.8% | 63.2% | 83.2% | 64.0% |\n| | Empowerment | 64.0% | 57.6% | 77.2% | 52.4% |\n| | Overall | 64.8% | 56.0% | 78.0% | 57.6% |\n| **-Low** (No Low-level) | Comprehensiveness | 64.0% | 56.8% | 80.8% | 64.0% |\n| | Diversity | 72.0% | 60.4% | 86.4% | 66.8% |\n| | Empowerment | 65.2% | 57.2% | 83.6% | 64.8% |\n| | Overall | 65.2% | 56.4% | 81.2% | 64.8% |\n| **-Origin** (No Original Text) | Comprehensiveness | 75.2% | 60.8% | 83.6% | 55.6% |\n| | Diversity | 73.6% | 55.2% | 85.6% | 74.4% |\n| | Empowerment | 68.0% | 56.8% | 82.8% | 54.8% |\n| | Overall | 74.4% | 60.8% | 84.4% | 55.6% |\n\n*(Note: NaiveRAG baseline win rates for reference are provided in the sources but omitted here for compactness. For example, in Agriculture/Overall, NaiveRAG is 32.4% [S1], 35.2% [S1], 34.8% [S2], and 25.6% [S2] for the respective comparisons.)*\n\n### Key Observations from the Text\n\n*   **Low-level-only Retrieval (-High)**: Removing high-order retrieval leads to a significant performance decline across nearly all datasets and metrics [S3]. This is attributed to an excessive focus on specific entities and their immediate neighbors, which struggles with complex queries requiring comprehensive insights [S3].\n*   **High-level-only Retrieval (-Low)**: This variant prioritizes broader content via entity-wise relationships [S3]. It offers advantages in comprehensiveness but suffers from reduced depth in examining specific entities, limiting its ability to provide detailed insights [S3].\n*   **Hybrid Mode (Full LightRAG)**: The full model combines both low-level and high-level retrieval, achieving balanced performance across multiple dimensions by ensuring both breadth and depth [S3].\n*   **Semantic Graph Only (-Origin)**: Eliminating the use of original text in the retrieval process does not result in significant performance declines across all four datasets [S4]. In some cases, such as Agriculture and Mix, this variant even shows improvements [S4]. This is attributed to the effective extraction of key information during graph-based indexing, which provides sufficient context, while original text may introduce noise [S4].\n\nThe full LightRAG model generally outperforms the ablated versions in the \"Overall\" metric across most datasets, particularly in the Legal dataset where the full model achieves an 84.8% win rate compared to 78.0% (-High), 81.2% (-Low), and 84.4% (-Origin) [S1, S2].",
+   "error": null,
+   "intent": "question",
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "misattributed_numbers": [],
+   "ledger": [
+    {
+     "call": "plan",
+     "actual_prompt_tokens": 386,
+     "actual_output_tokens": 89,
+     "max_output_tokens": 400,
+     "within_limit": true,
+     "seconds": 10.6
+    },
+    {
+     "call": "answer",
+     "actual_prompt_tokens": 4764,
+     "actual_output_tokens": 1254,
+     "max_output_tokens": 1800,
+     "within_limit": true,
+     "seconds": 3.0
+    }
+   ],
+   "summary_ledger": [],
+   "rubric_pass": true,
+   "rubric_missing": [],
+   "round": 1,
+   "q": "Performance of ablated versions of LightRAG",
+   "seconds": 61.5,
+   "overall_values_present": {
+    "Full": [
+     "67.6",
+     "61.2",
+     "84.8",
+     "60.0"
+    ],
+    "-High": [
+     "64.8",
+     "56.0",
+     "78.0",
+     "57.6"
+    ],
+    "-Low": [
+     "65.2",
+     "56.4",
+     "81.2",
+     "64.8"
+    ],
+    "-Origin": [
+     "74.4",
+     "60.8",
+     "84.4",
+     "55.6"
+    ]
+   }
+  },
+  {
+   "answer": "Based on the provided sources, LightRAG and GraphRAG are both graph-based Retrieval-Augmented Generation (RAG) systems, but LightRAG demonstrates superior performance in retrieval accuracy, response diversity, and computational efficiency, particularly on large-scale datasets.\n\n### Performance Comparison\nLightRAG consistently outperforms GraphRAG, especially in larger datasets with complex language contexts [S4].\n*   **Large-Scale Corpora:** In the Agriculture, CS, and Legal datasets (each containing millions of tokens), LightRAG significantly surpasses GraphRAG [S4].\n*   **Win Rates:** On the largest dataset (Legal), baseline methods (including GraphRAG) achieve only about 20% win rates compared to the dominance of LightRAG [S5].\n*   **Evaluation Dimensions:** In a specific case study comparing the two methods on a machine learning question, LightRAG outperformed GraphRAG in all four LLM-judged dimensions: comprehensiveness, diversity, empowerment, and overall quality [S1] [S7].\n*   **Diversity:** LightRAG shows a significant advantage in the Diversity metric, particularly in the Legal dataset, attributed to its dual-level retrieval paradigm that combines low-level entity retrieval with high-level topic exploration [S5].\n\n### Efficiency and Cost Comparison\nLightRAG is significantly more efficient in terms of token usage and API calls during both retrieval and incremental updates compared to GraphRAG [S2] [S6].\n\n| Phase | Metric | GraphRAG | LightRAG |\n| :--- | :--- | :--- | :--- |\n| **Retrieval** | Tokens | 610,000 (610 communities × 1,000 tokens) | < 100 tokens [S2] [S6] |\n| **Retrieval** | API Calls | Hundreds (traversing each community individually) | 1 (single call for keyword generation and retrieval) [S2] [S6] |\n| **Incremental Update** | Tokens | ~1,399 × 2 × 5,000 (reconstruction of community reports) | $T_{extract}$ (only overhead for new entity/relationship extraction) [S2] [S6] |\n| **Incremental Update** | API Calls | 1,399 × 2 + $C_{extract}$ | $C_{extract}$ [S6] |\n\n*   **Retrieval Mechanism:** GraphRAG requires traversing each community individually, leading to high overhead [S2]. LightRAG integrates graph structures with vectorized representations, eliminating the need to process large volumes of information upfront [S2] [S9].\n*   **Incremental Updates:** When new data is introduced, GraphRAG must dismantle its existing community structure and regenerate all community reports, incurring substantial token costs [S2]. LightRAG seamlessly integrates newly extracted entities and relationships into the existing graph without full reconstruction, resulting in significantly lower overhead [S2].\n\n### Architectural Differences\n*   **Retrieval Paradigm:** LightRAG employs a **dual-level retrieval paradigm** that retrieves both low-level (specific entities) and high-level (broader topics) information [S3] [S4] [S5]. GraphRAG relies on a community-based traversal method [S9].\n*   **Indexing:** Both systems use LLMs to extract entities and relationships from text chunks [S9]. However, LightRAG’s approach allows for efficient incremental updates without rebuilding the entire index, whereas GraphRAG’s community structure requires regeneration upon data changes [S3] [S2].\n\n### Conclusion\nWhile both systems leverage graph structures, LightRAG offers a more cost-effective and accurate solution. It achieves higher win rates and better response diversity while drastically reducing the token and API call costs associated with retrieval and dynamic data updates [S2] [S4] [S5].",
+   "error": null,
+   "intent": "question",
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "misattributed_numbers": [],
+   "ledger": [
+    {
+     "call": "plan",
+     "actual_prompt_tokens": 425,
+     "actual_output_tokens": 100,
+     "max_output_tokens": 400,
+     "within_limit": true,
+     "seconds": 0.5
+    },
+    {
+     "call": "answer",
+     "actual_prompt_tokens": 4144,
+     "actual_output_tokens": 839,
+     "max_output_tokens": 1800,
+     "within_limit": true,
+     "seconds": 2.3
+    }
+   ],
+   "summary_ledger": [],
+   "rubric_pass": true,
+   "rubric_missing": [],
+   "round": 2,
+   "q": "compare lightRAG with GraphRAG",
+   "seconds": 27.6
+  },
+  {
+   "answer": "Based on the provided sources, the performance of the ablated versions of LightRAG is evaluated in **Table 2** (Section 4.3, Ablation Studies) [S1] [S2] [S5]. The table reports **win rates (%)** comparing each ablated variant against the **NaiveRAG** baseline across four datasets (Agriculture, CS, Legal, Mix) and four evaluation dimensions (Comprehensiveness, Diversity, Empowerment, Overall) [S1] [S2].\n\nThe ablated versions tested are:\n1.  **Full LightRAG** (Hybrid Mode)\n2.  **-High** (Low-level-only retrieval; removes high-order retrieval)\n3.  **-Low** (High-level-only retrieval; removes low-level retrieval)\n4.  **-Origin** (Removes original text from retrieval; uses only semantic graph)\n\n### Performance Metrics (Win Rates vs. NaiveRAG)\n\nThe following table summarizes the **Overall** win rates for each variant across the four datasets. Higher percentages indicate better performance relative to NaiveRAG.\n\n| Variant | Agriculture | CS | Legal | Mix |\n| :--- | :--- | :--- | :--- | :--- |\n| **LightRAG (Full)** | 67.6% | 61.2% | 84.8% | 60.0% |\n| **-High (Low-only)** | 64.8% | 56.0% | 78.0% | 57.6% |\n| **-Low (High-only)** | 65.2% | 56.4% | 81.2% | 64.8% |\n| **-Origin (No Text)** | 74.4% | 60.8% | 84.4% | 55.6% |\n\n*Source: [S1] for LightRAG and -High; [S2] for -Low and -Origin.*\n\n### Key Observations\n\n*   **Full LightRAG (Hybrid Mode):** Achieves balanced performance across all dimensions and datasets. It combines the strengths of both low-level (specific entities) and high-level (broader topics) retrieval, ensuring both breadth and depth [S3] [S5].\n*   **-High (Low-level-only):** Removing high-order retrieval leads to a performance decline compared to the full model, particularly in complex queries requiring comprehensive insights. This variant focuses excessively on specific entities and their immediate neighbors, struggling with broader context [S3] [S5].\n*   **-Low (High-level-only):** Prioritizes broader content via entity-wise relationships. While it offers advantages in comprehensiveness, it lacks depth in examining specific entities, which can limit detailed insights. In the **Mix** dataset, this variant actually outperforms the full LightRAG in Overall win rate (64.8% vs. 60.0%), suggesting that for mixed contexts, broader retrieval may be more effective [S2] [S3].\n*   **-Origin (No Original Text):** Eliminating original text from the retrieval process does not cause significant performance declines. In some cases, such as **Agriculture** (74.4% vs. 67.6%) and **Legal** (84.4% vs. 84.8%), it performs comparably or better than the full model. This is attributed to the effective extraction of key information during graph-based indexing, which provides sufficient context while filtering out irrelevant noise from the original text [S2] [S4].\n\n### Detailed Breakdown by Dimension (Overall Win Rates)\n\n| Variant | Comprehensiveness (Agri/CS/Legal/Mix) | Diversity (Agri/CS/Legal/Mix) | Empowerment (Agri/CS/Legal/Mix) |\n| :--- | :--- | :--- | :--- |\n| **LightRAG** | 67.6 / 61.6 / 83.6 / 61.2 | 76.4 / 62.0 / 86.4 / 67.6 | 67.6 / 61.2 / 83.6 / 57.2 |\n| **-High** | 65.2 / 57.2 / 76.4 / 5",
+   "error": null,
+   "intent": "question",
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "misattributed_numbers": [
+    {
+     "value": "64.8%",
+     "context": "### Key Observations | this variant actually outperforms the full LightRAG in Overall win rate (64.8%",
+     "cells": [
+      "Overall · Agriculture / -High = 64.8%",
+      "Empowerment · Mix / -Low = 64.8%",
+      "Overall · Mix / -Low = 64.8%"
+     ]
+    },
+    {
+     "value": "67.6%",
+     "context": "### Key Observations | 67.6%) and **Legal** (",
+     "cells": [
+      "Comprehensiveness · Agriculture / LightRAG = 67.6%",
+      "Diversity · Mix / LightRAG = 67.6%",
+      "Empowerment · Agriculture / LightRAG = 67.6%"
+     ]
+    }
+   ],
+   "ledger": [
+    {
+     "call": "plan",
+     "actual_prompt_tokens": 386,
+     "actual_output_tokens": 89,
+     "max_output_tokens": 400,
+     "within_limit": true,
+     "seconds": 14.6
+    },
+    {
+     "call": "answer",
+     "actual_prompt_tokens": 4764,
+     "actual_output_tokens": 950,
+     "max_output_tokens": 950,
+     "within_limit": true,
+     "seconds": 2.6
+    }
+   ],
+   "summary_ledger": [],
+   "rubric_pass": true,
+   "rubric_missing": [],
+   "round": 2,
+   "q": "Performance of ablated versions of LightRAG",
+   "seconds": 60.9,
+   "overall_values_present": {
+    "Full": [
+     "67.6",
+     "61.2",
+     "84.8",
+     "60.0"
+    ],
+    "-High": [
+     "64.8",
+     "56.0",
+     "78.0",
+     "57.6"
+    ],
+    "-Low": [
+     "65.2",
+     "56.4",
+     "81.2",
+     "64.8"
+    ],
+    "-Origin": [
+     "74.4",
+     "60.8",
+     "84.4",
+     "55.6"
+    ]
+   }
+  },
+  {
+   "answer": "Based on the provided sources, the performance of the ablated versions of LightRAG is detailed in **Table 2** (pages 8), which compares the full LightRAG model and its ablated variants against the **NaiveRAG** baseline. The table reports **win rates (%)** across four datasets (Agriculture, CS, Legal, Mix) and four evaluation dimensions (Comprehensiveness, Diversity, Empowerment, Overall).\n\nThe ablated versions tested are:\n*   **Full LightRAG**: The complete model with dual-level retrieval.\n*   **-High**: Removes high-level retrieval (low-level only).\n*   **-Low**: Removes low-level retrieval (high-level only).\n*   **-Origin**: Removes the use of original text in retrieval (semantic graph only).\n\n### Performance Metrics (Win Rates vs. NaiveRAG)\n\nThe following tables summarize the win rates for each variant. A higher percentage indicates that the variant outperformed NaiveRAG in that specific dimension and dataset.\n\n#### 1. Full LightRAG vs. NaiveRAG\n*Source: [S1]*\n\n| Dataset | Comprehensiveness | Diversity | Empowerment | Overall |\n| :--- | :--- | :--- | :--- | :--- |\n| **Agriculture** | 67.6% | 76.4% | 67.6% | 67.6% |\n| **CS** | 61.6% | 62.0% | 61.2% | 61.2% |\n| **Legal** | 83.6% | 86.4% | 83.6% | 84.8% |\n| **Mix** | 61.2% | 67.6% | 57.2% | 60.0% |\n\n#### 2. -High Variant (Low-level only) vs. NaiveRAG\n*Source: [S1]*\n\n| Dataset | Comprehensiveness | Diversity | Empowerment | Overall |\n| :--- | :--- | :--- | :--- | :--- |\n| **Agriculture** | 65.2% | 72.8% | 64.0% | 64.8% |\n| **CS** | 57.2% | 63.2% | 57.6% | 56.0% |\n| **Legal** | 76.4% | 83.2% | 77.2% | 78.0% |\n| **Mix** | 59.6% | 64.0% | 52.4% | 57.6% |\n\n#### 3. -Low Variant (High-level only) vs. NaiveRAG\n*Source: [S2]*\n\n| Dataset | Comprehensiveness | Diversity | Empowerment | Overall |\n| :--- | :--- | :--- | :--- | :--- |\n| **Agriculture** | 64.0% | 72.0% | 65.2% | 65.2% |\n| **CS** | 56.8% | 60.4% | 57.2% | 56.4% |\n| **Legal** | 80.8% | 86.4% | 83.6% | 81.2% |\n| **Mix** | 64.0% | 66.8% | 64.8% | 64.8% |\n\n#### 4. -Origin Variant (No Original Text) vs. NaiveRAG\n*Source: [S2]*\n\n| Dataset | Comprehensiveness | Diversity | Empowerment | Overall |\n| :--- | :--- | :--- | :--- | :--- |\n| **Agriculture** | 75.2% | 73.6% | 68.0% | 74.4% |\n| **CS** | 60.8% | 55.2% | 56.8% | 60.8% |\n| **Legal** | 83.6% | 85.6% | 82.8% | 84.4% |\n| **Mix** | 55.6% | 74.4% | 54.8% | 55.6% |\n\n### Key Observations from the Text\n\n*   **Dual-Level Retrieval Importance**: The full LightRAG model generally achieves the highest or near-highest win rates compared to the single-level ablations (-High and -Low). The text notes that the **-High** variant (low-level only) suffers a performance decline because it focuses excessively on specific entities and immediate neighbors, struggling with complex queries requiring comprehensive insights [S3]. Conversely, the **-Low** variant (high-level only) offers better comprehensiveness but lacks depth in specific entities, limiting detailed insights [S3].\n*   **Semantic Graph Effectiveness**: The **-Origin** variant, which eliminates the use of original text in retrieval, does not exhibit significant performance declines across all four datasets compared to the full model [S4]. In some cases, such as Agriculture and Mix, it even shows improvements or maintains high performance, attributed to the effective extraction of key information during graph-based indexing and the reduction of noise from irrelevant original text [S4].\n*   **Overall Superiority**: All ablated versions still outperform the NaiveRAG baseline (win rates > 50% in most cases), but the full LightRAG model demonstrates the most balanced and superior performance, particularly in the Legal dataset where win rates exceed 80% for most dimensions [S1], [S2].\n\n[S1], [S2], [S3], [S4]",
+   "error": null,
+   "intent": "question",
+   "invalid_citations": [],
+   "ungrounded_numbers": [
+    "50",
+    "80"
+   ],
+   "misattributed_numbers": [],
+   "ledger": [
+    {
+     "call": "plan",
+     "actual_prompt_tokens": 386,
+     "actual_output_tokens": 89,
+     "max_output_tokens": 400,
+     "within_limit": true,
+     "seconds": 0.4
+    },
+    {
+     "call": "answer",
+     "actual_prompt_tokens": 4764,
+     "actual_output_tokens": 1301,
+     "max_output_tokens": 1800,
+     "within_limit": true,
+     "seconds": 3.2
+    }
+   ],
+   "summary_ledger": [],
+   "rubric_pass": true,
+   "rubric_missing": [],
+   "round": 3,
+   "q": "Performance of ablated versions of LightRAG",
+   "seconds": 29.9,
+   "overall_values_present": {
+    "Full": [
+     "67.6",
+     "61.2",
+     "84.8",
+     "60.0"
+    ],
+    "-High": [
+     "64.8",
+     "56.0",
+     "78.0",
+     "57.6"
+    ],
+    "-Low": [
+     "65.2",
+     "56.4",
+     "81.2",
+     "64.8"
+    ],
+    "-Origin": [
+     "74.4",
+     "60.8",
+     "84.4",
+     "55.6"
+    ]
+   }
+  }
+ ],
+ "injection": []
+}

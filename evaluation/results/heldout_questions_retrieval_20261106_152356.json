@@ -1,0 +1,196 @@
+{
+ "mode": "retrieval",
+ "health": {
+  "llm": {
+   "provider": "ollama",
+   "model": "qwen2.5:14b",
+   "ok": true,
+   "detail": "model available"
+  },
+  "embeddings": {
+   "provider": "ollama",
+   "model": "nomic-embed-text"
+  },
+  "rerank": {
+   "model": "BAAI/bge-reranker-base",
+   "enabled": true,
+   "error": ""
+  },
+  "max_context_tokens": 10000,
+  "answer_max_tokens": 1200
+ },
+ "docs": {
+  "rag": {
+   "id": "23e3249e9a1e7541",
+   "filename": "2005.11401.pdf",
+   "sha256": "23e3249e9a1e75418d82efecab0ea8c4d033b89c93742f63208d47ce01f21233",
+   "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+   "status": "ready",
+   "stage": "ready",
+   "error": "",
+   "num_pages": 19,
+   "num_chunks": 74,
+   "num_tables": 4,
+   "total_tokens": 19602,
+   "retrieval": "hybrid",
+   "card": "Title: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks\nPages: 19 · tables with captions: 7 · figures with captions: 4\nPDF metadata: creationDate: D:20210413004838Z; modDate: D:20210413004838Z\nFront matter (authors, affiliations, contact; first page, before the first heading):\nPatrick Lewis†‡, Ethan Perez⋆,\nAleksandra Piktus†, Fabio Petroni†, Vladimir Karpukhin†, Naman Goyal†, Heinrich Küttler†,\nMike Lewis†, Wen-tau Yih†, Tim Rocktäschel†‡, Sebastian Riedel†‡, Douwe Kiela†\n†Facebook AI Research; ‡University College London; ⋆New York University;\nplewis@fb.com\nAbstract / opening:\nLarge pre-trained language models have been shown to store factual knowledge in their parameters, and achieve state-of-the-art results when ﬁne-tuned on downstream NLP tasks. However, their ability to access and precisely manipulate knowledge is still limited, and hence on knowledge-intensive tasks, their performance lags behind task-speciﬁc architectures. Additionally, providing provenance for their decisions and updating their world knowledge remain open research problems. Pretrained models with a differentiable access mechanism to explicit non-parametric memory have so far been only investigated for extractive downstream tasks. We explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric memory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We compare two RAG formulations, one which conditions on the same retrieved passages across the whole generated sequence, and another which can use different passages per token. We ﬁne-tune and evaluate our models on a wide range of knowledgeintensive NLP tasks and set the state of the art on three open domain QA tasks, outperforming parametric seq2seq models and task-speciﬁc retrieve-and-extract architectures. For language generation tasks, we ﬁnd that RAG models generate more speciﬁc, diverse and factual language than a state-of-the-art parametric-only seq2seq baseline.\nOutline (section headings in order): Abstract | 1 Introduction | 2 Methods | 3 Experiments | 4 Results | 5 Related Work | 6 Discussion | Broader Impact | Acknowledgments | References | Appendices for Retrieval-Augmented Generation for | A Implementation Details | B Human Evaluation | C Training setup Details | D Further Details on Open-Domain QA | E Further Details on FEVER | F Null Document Probabilities | G Parameters | H Retrieval Collapse | I Number of instances per dataset\nTable and figure captions:\nFigure 1: Overview of our approach. We combine a pre-trained retriever (Query Encoder + Document Index) with a pre-trained seq2seq model (Generator) and ﬁne-tun\nTable 2: Generation and classiﬁcation Test Scores. MS-MARCO SotA is [4], FEVER-3 is [68] and FEVER-2 is [57] *Uses gold context/evidence. Best model without gol\nTable 1: Open-Domain QA Test Scores. For TQA, left column uses the standard test set for Open- Domain QA, right column uses the TQA-Wiki test set. See Appendix \nFigure 2: RAG-Token document posterior p(zi|x, yi, y−i) for each generated token for input “Hemingway\" for Jeopardy generation with 5 retrieved documents. The p\nTable 3: Examples from generation tasks. RAG models generate more …",
+   "summary_status": "running",
+   "summary_stage": "Reading document part 1/4",
+   "created": 1793949429.4390001
+  }
+ },
+ "results": [
+  {
+   "evidence_tokens": 3141,
+   "n_sources": 11,
+   "doc": "rag",
+   "type": "metadata",
+   "q": "What is the title of this paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 28.0
+  },
+  {
+   "evidence_tokens": 3162,
+   "n_sources": 10,
+   "doc": "rag",
+   "type": "metadata",
+   "q": "Who is the first author?",
+   "pass": true,
+   "missing": [],
+   "seconds": 19.7
+  },
+  {
+   "evidence_tokens": 3372,
+   "n_sources": 12,
+   "doc": "rag",
+   "type": "metadata",
+   "q": "Which institutions are the authors from?",
+   "pass": true,
+   "missing": [],
+   "seconds": 21.1
+  },
+  {
+   "evidence_tokens": 4017,
+   "n_sources": 13,
+   "doc": "rag",
+   "type": "fact",
+   "q": "What are the two RAG formulations proposed in the paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 21.5
+  },
+  {
+   "evidence_tokens": 2765,
+   "n_sources": 9,
+   "doc": "rag",
+   "type": "fact",
+   "q": "Which retriever does RAG use?",
+   "pass": true,
+   "missing": [],
+   "seconds": 20.9
+  },
+  {
+   "evidence_tokens": 1872,
+   "n_sources": 9,
+   "doc": "rag",
+   "type": "fact",
+   "q": "Which generator model is used, and how many parameters does it have?",
+   "pass": true,
+   "missing": [],
+   "seconds": 21.6
+  },
+  {
+   "evidence_tokens": 1306,
+   "n_sources": 6,
+   "doc": "rag",
+   "type": "fact",
+   "q": "How many documents are in the retrieval index?",
+   "pass": true,
+   "missing": [],
+   "seconds": 21.2
+  },
+  {
+   "evidence_tokens": 824,
+   "n_sources": 5,
+   "doc": "rag",
+   "type": "fact",
+   "q": "Which Wikipedia dump is used as the knowledge source?",
+   "pass": true,
+   "missing": [],
+   "seconds": 20.2
+  },
+  {
+   "evidence_tokens": 2655,
+   "n_sources": 9,
+   "doc": "rag",
+   "type": "table",
+   "q": "What exact match score does RAG-Sequence get on Natural Questions?",
+   "pass": true,
+   "missing": [],
+   "seconds": 20.1
+  },
+  {
+   "evidence_tokens": 2302,
+   "n_sources": 9,
+   "doc": "rag",
+   "type": "table",
+   "q": "What score does RAG-Token get on WebQuestions?",
+   "pass": false,
+   "missing": [
+    "45.5"
+   ],
+   "seconds": 20.6
+  },
+  {
+   "evidence_tokens": 2009,
+   "n_sources": 9,
+   "doc": "rag",
+   "type": "structure",
+   "q": "Explain Table 1.",
+   "pass": true,
+   "missing": [],
+   "seconds": 20.4
+  },
+  {
+   "evidence_tokens": 1353,
+   "n_sources": 6,
+   "doc": "rag",
+   "type": "fact",
+   "q": "What hardware was used for training?",
+   "pass": true,
+   "missing": [],
+   "seconds": 20.3
+  },
+  {
+   "evidence_tokens": 3128,
+   "n_sources": 11,
+   "doc": "rag",
+   "type": "comparison",
+   "q": "Compare RAG-Sequence with RAG-Token.",
+   "pass": true,
+   "missing": [],
+   "seconds": 21.9
+  },
+  {
+   "evidence_tokens": 2328,
+   "n_sources": 9,
+   "doc": "rag",
+   "type": "citation",
+   "q": "Which paper is cited the most?",
+   "pass": true,
+   "missing": [],
+   "seconds": 19.2
+  },
+  {
+   "evidence_tokens": 3231,
+   "n_sources": 12,
+   "doc": "rag",
+   "type": "multilingual",
+   "q": "這篇論文的第一作者是誰？",
+   "pass": true,
+   "missing": [],
+   "seconds": 20.3
+  }
+ ]
+}

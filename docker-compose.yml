@@ -1,0 +1,55 @@
+# Local stack: DocChat + Ollama. Start with:  docker compose up --build
+# Then open http://localhost:8000. The first start downloads the models (~5 GB) once.
+# To use a cloud model instead of Ollama, set LLM_PROVIDER/LLM_BASE_URL/LLM_MODEL/LLM_API_KEY in .env.
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+    # Runs on CPU by default. With an NVIDIA GPU and the NVIDIA Container Toolkit, uncomment:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+  ollama-models:  # one-shot: pulls the models into the shared volume, then exits
+    image: ollama/ollama:latest
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    entrypoint: ["/bin/sh", "-c", "ollama pull ${LLM_MODEL:-qwen2.5:14b} && ollama pull ${EMBED_MODEL:-nomic-embed-text}"]
+    restart: "no"
+
+  docchat:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      - LLM_PROVIDER=${LLM_PROVIDER:-ollama}
+      - LLM_MODEL=${LLM_MODEL:-qwen2.5:14b}
+      - LLM_BASE_URL=${LLM_BASE_URL:-http://ollama:11434}
+      - EMBED_BASE_URL=http://ollama:11434
+    volumes:
+      - docchat-data:/data
+      - docchat-models:/models
+    depends_on:
+      ollama-models:
+        condition: service_completed_successfully
+
+volumes:
+  ollama:
+  docchat-data:
+  docchat-models:

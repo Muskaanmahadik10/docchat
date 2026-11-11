@@ -1,0 +1,2241 @@
+{
+ "mode": "answer",
+ "health": {
+  "llm": {
+   "provider": "ollama",
+   "model": "qwen2.5:14b",
+   "ok": true,
+   "detail": "model available"
+  },
+  "embeddings": {
+   "provider": "ollama",
+   "model": "nomic-embed-text"
+  },
+  "rerank": {
+   "model": "BAAI/bge-reranker-base",
+   "enabled": true,
+   "error": ""
+  },
+  "max_context_tokens": 10000,
+  "answer_max_tokens": 1200
+ },
+ "docs": {
+  "lightrag": {
+   "id": "f97ee42f8be0db2e",
+   "filename": "2410.05779v2.pdf",
+   "sha256": "f97ee42f8be0db2eaa827879e9b9a2343f6170f04391c8736ef35128b31e178f",
+   "title": "LIGHTRAG: SIMPLE AND FAST RETRIEVAL-AUGMENTED GENERATION",
+   "status": "ready",
+   "stage": "ready",
+   "error": "",
+   "num_pages": 16,
+   "num_chunks": 50,
+   "num_tables": 5,
+   "total_tokens": 15389,
+   "retrieval": "hybrid",
+   "card": "Title: LIGHTRAG: SIMPLE AND FAST RETRIEVAL-AUGMENTED GENERATION\nPages: 16 · tables with captions: 5 · figures with captions: 7\nPDF metadata: creationDate: D:20241108013604Z; modDate: D:20241108013604Z\nFront matter (authors, affiliations, contact; first page, before the first heading):\nZirui Guo1,2, Lianghao Xia2, Yanhua Yu1, Tu Ao1, Chao Huang2∗\nBeijing University of Posts and Telecommunications1\nUniversity of Hong Kong2\nzrguo101@hku.hk aka_xia@foxmail.com chaohuang75@gmail.com\nAbstract / opening:\nRetrieval-Augmented Generation (RAG) systems enhance large language models (LLMs) by integrating external knowledge sources, enabling more accurate and contextually relevant responses tailored to user needs. However, existing RAG systems have significant limitations, including reliance on flat data representations and inadequate contextual awareness, which can lead to fragmented answers that fail to capture complex inter-dependencies. To address these challenges, we propose LightRAG, which incorporates graph structures into text indexing and retrieval processes. This innovative framework employs a dual-level retrieval system that enhances comprehensive information retrieval from both low-level and high-level knowledge discovery. Additionally, the integration of graph structures with vector representations facilitates efficient retrieval of related entities and their relationships, significantly improving response times while maintaining contextual relevance. This capability is further enhanced by an incremental update algorithm that ensures the timely integration of new data, allowing the system to remain effective and responsive in rapidly changing data environments. Extensive experimental validation demonstrates considerable improvements in retrieval accuracy and efficiency compared to existing approaches. We have made our LightRAG open-source and available at the link: https://github.com/HKUDS/LightRAG.\nOutline (section headings in order): ABSTRACT | 1 INTRODUCTION | 2 RETRIEVAL-AUGMENTED GENERATION | 3 THE LIGHTRAG ARCHITECTURE | 4 EVALUATION | 5 RELATED WORK | 6 CONCLUSION | REFERENCES | 7 APPENDIX\nTable and figure captions:\nFigure 1: Overall architecture of the proposed LightRAG framework.\nTable 1: Win rates (%) of baselines v.s. LightRAG across four datasets and four evaluation dimensions.\nTable 2: Performance of ablated versions of LightRAG, using NaiveRAG as reference.\nTable 3: Case Study: Comparison Between LightRAG and the Baseline Method GraphRAG.\nFigure 2: Comparison of Cost in Terms of Tokens and API Calls for GraphRAG and LightRAG on the Legal Dataset.\nTable 4: Statistical information of the datasets.\nFigure 3: A retrieval and generation example.\nFigure 4: Prompts for Graph Generation\nFigure 5: Prompts for Query Generation\nFigure 6: Prompts for Keyword Extraction\nFigure 7: Prompts for RAG Evaluation\nTable 5: Case Study: Comparison Between LightRAG and the Baseline NaiveRAG.",
+   "summary_status": "ready",
+   "summary_stage": "ready",
+   "created": 1793950632.2883384
+  },
+  "bert": {
+   "id": "5692a5514787a8c6",
+   "filename": "1810.04805.pdf",
+   "sha256": "5692a5514787a8c6727b4ff3b726a3385798bc68e12138d1d4af83947e2acf6e",
+   "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+   "status": "ready",
+   "stage": "ready",
+   "error": "",
+   "num_pages": 16,
+   "num_chunks": 61,
+   "num_tables": 7,
+   "total_tokens": 18421,
+   "retrieval": "hybrid",
+   "card": "Title: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding\nPages: 16 · tables with captions: 7 · figures with captions: 5\nPDF metadata: creationDate: D:20190528000751Z; modDate: D:20190528000751Z\nFront matter (authors, affiliations, contact; first page, before the first heading):\nJacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweichang,kentonl,kristout}@google.com\nAbstract / opening:\nWe introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pretrain deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be ﬁnetuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial taskspeciﬁc architecture modiﬁcations. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5% (7.7% point absolute improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement). 1\nOutline (section headings in order): Abstract | Introduction | Related Work | Experiments | Conclusion | References | Appendix for “BERT: Pre-training of\nTable and figure captions:\nFigure 1: Overall pre-training and ﬁne-tuning procedures for BERT. Apart from output layers, the same architectures are used in both pre-training and ﬁne-tuning\nFigure 2: BERT input representation. The input embeddings are the sum of the token embeddings, the segmentation embeddings and the position embeddings.\nTable 1: GLUE Test results, scored by the evaluation server (https://gluebenchmark.com/leaderboard). The number below each task denotes the number of training e\nTable 2: SQuAD 1.1 results. The BERT ensemble is 7x systems which use different pre-training checkpoints and ﬁne-tuning seeds.\nTable 3: SQuAD 2.0 results. We exclude entries that use BERT as one of their components.\nTable 5: Ablation over the pre-training tasks using the BERTBASE architecture. “No NSP” is trained without the next sentence prediction task. …",
+   "summary_status": "ready",
+   "summary_stage": "ready",
+   "created": 1793950849.9078062
+  },
+  "nist": {
+   "id": "7576edb531d98488",
+   "filename": "NIST.AI.100-1.pdf",
+   "sha256": "7576edb531d9848825814ee88e28b1795d3a84b435b4b797d3670eafdc4a89f1",
+   "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+   "status": "ready",
+   "stage": "ready",
+   "error": "",
+   "num_pages": 48,
+   "num_chunks": 82,
+   "num_tables": 2,
+   "total_tokens": 22476,
+   "retrieval": "hybrid",
+   "card": "Title: Artificial Intelligence Risk Management Framework (AI RMF 1.0)\nPages: 48 · tables with captions: 4 · figures with captions: 4\nPDF metadata: author: National Institute of Standards and Technology; subject: As directed by the National Artificial Intelligence Initiative Act of 2020 (P.L. 116-283), the goal of the AI RMF is to offer a resource to the organizations designing, developing, deploying, or using AI systems to help manage the many risks of AI and promote trustworthy and responsible development and use of AI systems. The Framework is intended to be voluntary, rights-preserving, non-sector specific, and use-case agnostic, providing flexibility to organizations of all sizes and in all sectors and throughout society to implement the approaches in the Framework. The AI RMF is intended to be practical, to adapt to the AI landscape as AI technologies continue to develop, and to be operationalized by organizations in varying degrees and capacities so society can benefit from AI while also being protected from its potential harms.; keywords: Artificial Intelligence (AI); AI; AI RMF; AI RMF 1.0; AI systems; trustworthy and responsible AI.; creationDate: D:20230124144546-05'00'; modDate: D:20250604130145-04'00'\nOutline (section headings in order): NIST AI 100-1 | Table of Contents | List of Tables | List of Figures | Executive Summary | Part 1: Foundational Information | 1. Framing Risk | 2. Audience | 3. AI Risks and Trustworthiness | 4. Effectiveness of the AI RMF | Part 2: Core and Profiles | 5. AI RMF Core | 6. AI RMF Profiles | Appendix A: | Descriptions of AI Actor Tasks from Figures 2 and 3 | Appendix B: | How AI Risks Differ from Traditional Software Risks | Appendix C: | AI Risk Management and Human-AI Interaction | Appendix D: | Attributes of the AI RMF\nTable and figure captions:\nTable (no caption found)\nFig. 1. Examples of potential harms related to AI systems. Trustworthy AI systems and their responsible use can mitigate negative risks and contribute to benefi\nFig. 2. Lifecycle and Key Dimensions of an AI System. Modified from OECD (2022) OECD Framework for the Classification of AI systems — OECD Digital Economy Paper\nFig. 4. Characteristics of trustworthy AI systems. Valid & Reliable is a necessary condition of trustworthiness and is shown as the base for other trustworthine\nFig. 5. Functions organize AI risk management activities at their highest level to govern, map, measure, and manage AI risks. Governance is designed to be a cro\nTable 1: Categories and subcategories for the GOVERN function.\nTable 1: Categories and subcategories for the GOVERN function. (Continued)\nTable 2: Categories and subcategories for the MAP function.\nTable 2: Categories and subcategories for the MAP …",
+   "summary_status": "ready",
+   "summary_stage": "ready",
+   "created": 1793951907.7698593
+  },
+  "attention": {
+   "id": "bdfaa68d8984f0dc",
+   "filename": "source.pdf",
+   "sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+   "title": "Attention Is All You Need",
+   "status": "ready",
+   "stage": "ready",
+   "error": "",
+   "num_pages": 15,
+   "num_chunks": 36,
+   "num_tables": 3,
+   "total_tokens": 10568,
+   "retrieval": "hybrid",
+   "card": "Title: Attention Is All You Need\nPages: 15 · tables with captions: 4 · figures with captions: 5\nPDF metadata: creationDate: D:20240410211143Z; modDate: D:20240410211143Z\nAbstract / opening:\nThe dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 Englishto-German translation task, improving over the existing best results, including ensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data. ∗Equal contribution. Listing order is random. Jakob proposed replacing RNNs with self-attention and started the effort to evaluate this idea. Ashish, with Illia, designed and implemented the first Transformer models and has been crucially involved in every aspect of this work. Noam proposed scaled dot-product attention, multi-head attention and the parameter-free position representation and became the other person involved in nearly every detail. Niki designed, implemented, tuned and evaluated countless model variants in our original codebase and …\nOutline (section headings in order): Provided proper attribution is provided, Google hereby grants permission to | reproduce the tables and figures in this paper solely for use in journalistic or | scholarly works. | Abstract | 1 Introduction | 2 Background | 3 Model Architecture | 4 Why Self-Attention | 5 Training | 6 Results | 7 Conclusion | Acknowledgements | References | Attention Visualizations\nTable and figure captions:\nFigure 1: The Transformer - model architecture.\nFigure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several attention layers running in parallel.\nTable 1: Maximum path lengths, per-layer complexity and minimum number of sequential operations for different layer types. n is the sequence length, d is the re\nTable 2: The Transformer achieves better BLEU scores than previous state-of-the-art models on the English-to-German and English-to-French newstest2014 tests at \nTable 3: Variations on the Transformer architecture. Unlisted values are identical to those of the base model. All metrics are on the English-to-German translat\nTable 4: The Transformer generalizes well to English constituency parsing (Results are on Section 23 of WSJ)\nFigure 3: An example of the attention mechanism following long-distance dependencies in the encoder self-attention in layer 5 of 6. Many of …",
+   "summary_status": "ready",
+   "summary_stage": "ready",
+   "created": 1793952240.2745917
+  }
+ },
+ "results": [
+  {
+   "answer": "The title of this paper is \"LIGHTRAG: SIMPLE AND FAST RETRIEVAL-AUGMENTED GENERATION\" [D].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "title of the paper"
+    ],
+    "count_terms": [
+     "LIGHTRAG: SIMPLE AND FAST RETRIEVAL-AUGMENTED GENERATION",
+     "title",
+     "paper title",
+     "document title"
+    ],
+    "standalone": "What is the title of this paper?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 378,
+     "actual_prompt_tokens": 371,
+     "actual_output_tokens": 56,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.1
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4511,
+     "actual_prompt_tokens": 4590,
+     "actual_output_tokens": 30,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 11.1
+    }
+   ],
+   "doc": "lightrag",
+   "type": "metadata",
+   "q": "What is the title of this paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 35.7
+  },
+  {
+   "answer": "The authors of the document \"LIGHTRAG: SIMPLE AND FAST RETRIEVAL-AUGMENTED GENERATION\" are:\n\n- Zirui Guo [D]\n- Lianghao Xia [D]\n- Yanhua Yu [D]\n- Tu Ao [D]\n- Chao Huang [D]",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 375,
+     "actual_prompt_tokens": 368,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.5
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3585,
+     "actual_prompt_tokens": 3722,
+     "actual_output_tokens": 66,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 9.2
+    }
+   ],
+   "doc": "lightrag",
+   "type": "metadata",
+   "q": "Who are the authors?",
+   "pass": true,
+   "missing": [],
+   "seconds": 47.2
+  },
+  {
+   "answer": "- Beijing University of Posts and Telecommunications [L1]\n- University of Hong Kong [L1]",
+   "error": null,
+   "plan": {
+    "intent": "list",
+    "queries": [
+     "author affiliation",
+     "institution",
+     "LIGHTRAG"
+    ],
+    "count_terms": [
+     "affiliation",
+     "institution",
+     "author",
+     "LIGHTRAG: SIMPLE AND FAST RETRIEVAL-AUGMENTED GENERATION document title or name in full context."
+    ],
+    "standalone": "Which institutions are the authors affiliated with?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 378,
+     "actual_prompt_tokens": 371,
+     "actual_output_tokens": 72,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.4
+    },
+    {
+     "call": "list-map 1/4",
+     "est_prompt_tokens": 3800,
+     "actual_prompt_tokens": 3796,
+     "actual_output_tokens": 33,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 9.3
+    },
+    {
+     "call": "list-map 2/4",
+     "est_prompt_tokens": 3963,
+     "actual_prompt_tokens": 4121,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.6
+    },
+    {
+     "call": "list-map 3/4",
+     "est_prompt_tokens": 3838,
+     "actual_prompt_tokens": 3971,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.2
+    },
+    {
+     "call": "list-map 4/4",
+     "est_prompt_tokens": 3201,
+     "actual_prompt_tokens": 3299,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 6.6
+    },
+    {
+     "call": "list-answer",
+     "est_prompt_tokens": 904,
+     "actual_prompt_tokens": 919,
+     "actual_output_tokens": 22,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 3.6
+    }
+   ],
+   "doc": "lightrag",
+   "type": "metadata",
+   "q": "Which institutions are the authors affiliated with?",
+   "pass": true,
+   "missing": [],
+   "seconds": 41.8
+  },
+  {
+   "answer": "- Agriculture dataset [L2, L3, L4]\n- CS dataset [L2, L3, L4]\n- Legal dataset [L2, L3, L4]\n- Mix dataset [L2, L3, L4]",
+   "error": null,
+   "plan": {
+    "intent": "list",
+    "queries": [
+     "datasets used evaluation",
+     "evaluation datasets",
+     "datasets evaluation"
+    ],
+    "count_terms": [
+     "datasets",
+     "evaluation",
+     "used",
+     "LIGHTRAG evaluation datasets used in the document title or text."
+    ],
+    "standalone": "Which datasets are used in the evaluation?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 378,
+     "actual_prompt_tokens": 371,
+     "actual_output_tokens": 58,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.4
+    },
+    {
+     "call": "list-map 1/4",
+     "est_prompt_tokens": 3800,
+     "actual_prompt_tokens": 3796,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 7.2
+    },
+    {
+     "call": "list-map 2/4",
+     "est_prompt_tokens": 3963,
+     "actual_prompt_tokens": 4121,
+     "actual_output_tokens": 97,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 13.8
+    },
+    {
+     "call": "list-map 3/4",
+     "est_prompt_tokens": 3838,
+     "actual_prompt_tokens": 3971,
+     "actual_output_tokens": 156,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 17.2
+    },
+    {
+     "call": "list-map 4/4",
+     "est_prompt_tokens": 3201,
+     "actual_prompt_tokens": 3299,
+     "actual_output_tokens": 76,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 11.2
+    },
+    {
+     "call": "list-answer",
+     "est_prompt_tokens": 1187,
+     "actual_prompt_tokens": 1210,
+     "actual_output_tokens": 53,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.6
+    }
+   ],
+   "doc": "lightrag",
+   "type": "fact",
+   "q": "Which datasets are used in the evaluation?",
+   "pass": true,
+   "missing": [],
+   "seconds": 58.4
+  },
+  {
+   "answer": "The Legal dataset contains 5,081,069 tokens [S6].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "Legal dataset tokens"
+    ],
+    "count_terms": [
+     "Legal dataset tokens",
+     "number of tokens",
+     "Legal dataset size in tokens",
+     "Legal dataset token count"
+    ],
+    "standalone": "How many tokens does the Legal dataset contain?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 379,
+     "actual_prompt_tokens": 372,
+     "actual_output_tokens": 48,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 3.6
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3372,
+     "actual_prompt_tokens": 3482,
+     "actual_output_tokens": 20,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 6.5
+    }
+   ],
+   "doc": "lightrag",
+   "type": "table",
+   "q": "How many tokens does the Legal dataset contain?",
+   "pass": true,
+   "missing": [],
+   "seconds": 28.8
+  },
+  {
+   "answer": "The Overall win rate of the -High variant on the CS dataset is 56.0% [S2].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 392,
+     "actual_prompt_tokens": 385,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.2
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 5551,
+     "actual_prompt_tokens": 5823,
+     "actual_output_tokens": 25,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 11.3
+    }
+   ],
+   "doc": "lightrag",
+   "type": "table",
+   "q": "In the ablation study, what is the Overall win rate of the -High variant on the CS dataset?",
+   "pass": true,
+   "missing": [],
+   "seconds": 49.4
+  },
+  {
+   "answer": "The -Origin variant eliminates the use of original text in the retrieval process [S1].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 378,
+     "actual_prompt_tokens": 371,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 20.5
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3339,
+     "actual_prompt_tokens": 3482,
+     "actual_output_tokens": 19,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 7.9
+    }
+   ],
+   "doc": "lightrag",
+   "type": "fact",
+   "q": "What does the -Origin variant remove?",
+   "pass": true,
+   "missing": [],
+   "seconds": 47.1
+  },
+  {
+   "answer": "GraphRAG consumes 610,000 tokens during retrieval on the Legal dataset [S1]. This is calculated from 610 level-2 communities, each averaging 1,000 tokens [S1].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "GraphRAG tokens consumption retrieval Legal dataset"
+    ],
+    "count_terms": [
+     "GraphRAG",
+     "tokens",
+     "retrieval",
+     "Legal dataset"
+    ],
+    "standalone": "How many tokens does GraphRAG consume during retrieval on the Legal dataset?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 385,
+     "actual_prompt_tokens": 378,
+     "actual_output_tokens": 47,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 3.6
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3164,
+     "actual_prompt_tokens": 3268,
+     "actual_output_tokens": 50,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.0
+    }
+   ],
+   "doc": "lightrag",
+   "type": "fact",
+   "q": "How many tokens does GraphRAG consume during retrieval on the Legal dataset?",
+   "pass": true,
+   "missing": [],
+   "seconds": 31.0
+  },
+  {
+   "answer": "The chunk size used in the experiments is set to 1200 across all datasets [S2].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "chunk size experiments",
+     "chunk size used"
+    ],
+    "count_terms": [
+     "chunk size",
+     "experiments",
+     "used",
+     "experiments chunk size used in the document."
+    ],
+    "standalone": "What chunk size is used in the experiments?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 379,
+     "actual_prompt_tokens": 372,
+     "actual_output_tokens": 53,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.1
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 2315,
+     "actual_prompt_tokens": 2351,
+     "actual_output_tokens": 23,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 3.9
+    }
+   ],
+   "doc": "lightrag",
+   "type": "fact",
+   "q": "What chunk size is used in the experiments?",
+   "pass": true,
+   "missing": [],
+   "seconds": 27.5
+  },
+  {
+   "answer": "The document does not specify which GPU was used to run the experiments [S1-S10].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 379,
+     "actual_prompt_tokens": 372,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.6
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4999,
+     "actual_prompt_tokens": 5192,
+     "actual_output_tokens": 21,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 10.0
+    }
+   ],
+   "doc": "lightrag",
+   "type": "abstain",
+   "q": "What GPU was used to run the experiments?",
+   "pass": true,
+   "missing": [],
+   "seconds": 49.8
+  },
+  {
+   "answer": "### One-sentence gist\nLightRAG is a retrieval-augmented generation system that integrates graph structures into text indexing and retrieval, significantly improving retrieval accuracy and efficiency compared to existing methods [N1].\n\n### Problem & motivation\nThe existing retrieval-augmented generation (RAG) systems face limitations such as reliance on flat data representations and inadequate contextual awareness, leading to fragmented and contextually irrelevant responses. LightRAG aims to address these issues by incorporating graph structures and a dual-level retrieval paradigm to enhance comprehensive information retrieval and response diversity [N1].\n\n### Approach / method\nLightRAG employs a dual-level retrieval system that combines low-level and high-level retrieval strategies to handle specific and abstract queries efficiently. It uses graph-based text indexing to extract entities and relationships, creating a comprehensive knowledge graph. The system also integrates vector representations for efficient retrieval and employs an incremental update algorithm to ensure timely data integration [N1].\n\n### Key results (with exact numbers)\n- **Comprehensiveness**: LightRAG outperforms baselines across all datasets with win rates ranging from 61.2% to 84.8% [N2].\n- **Diversity**: LightRAG shows significant advantage, especially in the Legal dataset, with win rates from 67.6% to 88.4% [N2].\n- **Empowerment**: LightRAG leads with win rates from 57.2% to 84.8% [N2].\n- **Overall performance**: LightRAG consistently outperforms baselines, with win rates from 52.0% to 85.6% [N2].\n- **Cost efficiency**: LightRAG uses fewer tokens and API calls compared to GraphRAG, demonstrating better cost-effectiveness [N3].\n\n### Conclusions and limitations\nLightRAG significantly improves retrieval accuracy and efficiency in RAG systems by integrating graph structures and a dual-level retrieval paradigm. It outperforms existing methods in comprehensiveness, diversity, and empowerment across various datasets. However, the system's effectiveness is limited to the quality and structure of the input data and the efficiency of the LLM used for entity extraction and relationship generation [N1].",
+   "error": null,
+   "plan": {
+    "intent": "summary",
+    "queries": [],
+    "source": "rule"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "summary-answer",
+     "est_prompt_tokens": 2997,
+     "actual_prompt_tokens": 3072,
+     "actual_output_tokens": 452,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 34.7
+    }
+   ],
+   "doc": "lightrag",
+   "type": "core",
+   "q": "summary this document.",
+   "pass": true,
+   "missing": [],
+   "seconds": 34.7
+  },
+  {
+   "answer": "### Comparison of LightRAG with GraphRAG\n\n- **Dual-Level Retrieval Paradigm**: LightRAG uses a dual-level retrieval paradigm that facilitates comprehensive information retrieval from both low-level and high-level dimensions, whereas GraphRAG does not explicitly mention such a dual-level approach [S1].\n- **Performance in Large Datasets**: LightRAG outperforms GraphRAG in larger datasets with complex language contexts, such as the Agriculture, CS, and Legal datasets, where it shows a clear advantage [S1].\n- **Response Diversity**: LightRAG enhances response diversity by integrating low-level retrieval of specific entities with high-level retrieval of broader topics, addressing both detailed and abstract queries effectively [S1].\n- **Cost Efficiency**: LightRAG is more cost-efficient compared to GraphRAG. For example, in the retrieval phase, LightRAG uses fewer than 100 tokens and requires only one API call, whereas GraphRAG consumes 610,000 tokens and hundreds of API calls [S2].\n- **Adaptability to New Data**: LightRAG can seamlessly integrate newly extracted entities and relationships into the existing graph without full reconstruction, making it more efficient in dynamic environments. In contrast, GraphRAG incurs a significant token cost for updating its community structure [S7].\n\nThese points highlight the superior performance and efficiency of LightRAG over GraphRAG in various aspects [S1, S2, S7].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "lightRAG architecture",
+     "GraphRAG architecture",
+     "lightRAG experimental results",
+     "GraphRAG experimental results"
+    ],
+    "count_terms": [
+     "lightRAG",
+     "GraphRAG",
+     "architecture",
+     "experimental results"
+    ],
+    "standalone": "compare lightRAG with GraphRAG",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 417,
+     "actual_prompt_tokens": 410,
+     "actual_output_tokens": 71,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.5
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3810,
+     "actual_prompt_tokens": 3880,
+     "actual_output_tokens": 298,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 25.9
+    }
+   ],
+   "doc": "lightrag",
+   "type": "core",
+   "q": "compare lightRAG with GraphRAG",
+   "pass": false,
+   "missing": [
+    "incremental | update"
+   ],
+   "seconds": 50.7
+  },
+  {
+   "answer": "**One-sentence gist:** LightRAG, a retrieval-augmented generation system, uses a dual-level retrieval paradigm and graph-based indexing to improve retrieval accuracy and efficiency compared to existing methods [N1].\n\n**Problem & motivation:** Existing retrieval-augmented generation (RAG) systems struggle with fragmented answers and inadequate contextual awareness due to reliance on flat data representations [N1].\n\n**Approach / method:** LightRAG incorporates a dual-level retrieval paradigm and graph-based indexing to enhance comprehensive information retrieval and efficient entity relationship retrieval. It uses a graph-based text indexing phase to extract entities and relationships and a graph-based retrieval phase to generate relevant keywords and retrieve entities and relationships [N1].\n\n**Key results (with exact numbers):** Ablation studies show that LightRAG outperforms NaiveRAG significantly in comprehensiveness, diversity, and empowerment across all datasets. For example, in the Agriculture dataset, LightRAG achieves a comprehensiveness score of 67.6% compared to 32.4% for NaiveRAG, a diversity score of 76.4% compared to 23.6%, and an empowerment score of 67.6% compared to 32.4% [N3].\n\n**Conclusions and limitations:** LightRAG demonstrates superior performance in large-scale corpora and complex queries, capturing complex semantic dependencies and improving response diversity through dual-level retrieval. However, it requires careful management of graph structures and incremental updates to maintain efficiency [N1].",
+   "error": null,
+   "plan": {
+    "intent": "summary",
+    "queries": [
+     "performance ablated LightRAG",
+     "ablation study LightRAG",
+     "LightRAG variants performance"
+    ],
+    "count_terms": [
+     "LightRAG",
+     "ablated",
+     "performance",
+     "variants"
+    ],
+    "standalone": "Performance of ablated versions of LightRAG",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 379,
+     "actual_prompt_tokens": 372,
+     "actual_output_tokens": 65,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.3
+    },
+    {
+     "call": "summary-answer",
+     "est_prompt_tokens": 3003,
+     "actual_prompt_tokens": 3078,
+     "actual_output_tokens": 311,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 20.2
+    }
+   ],
+   "doc": "lightrag",
+   "type": "core",
+   "q": "Performance of ablated versions of LightRAG",
+   "pass": false,
+   "missing": [
+    "-High",
+    "-Low",
+    "-Origin"
+   ],
+   "seconds": 25.4
+  },
+  {
+   "answer": "The title of this paper is \"BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding\" [D].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "title of the paper"
+    ],
+    "count_terms": [
+     "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+     "title",
+     "paper title",
+     "document title"
+    ],
+    "standalone": "What is the title of this paper?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 372,
+     "actual_prompt_tokens": 365,
+     "actual_output_tokens": 51,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.5
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4589,
+     "actual_prompt_tokens": 4815,
+     "actual_output_tokens": 24,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 10.9
+    }
+   ],
+   "doc": "bert",
+   "type": "metadata",
+   "q": "What is the title of this paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 32.5
+  },
+  {
+   "answer": "The authors of the document \"BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding\" are Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova [S11].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 369,
+     "actual_prompt_tokens": 362,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.7
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4432,
+     "actual_prompt_tokens": 4697,
+     "actual_output_tokens": 44,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 12.2
+    }
+   ],
+   "doc": "bert",
+   "type": "metadata",
+   "q": "Who are the authors?",
+   "pass": true,
+   "missing": [],
+   "seconds": 48.9
+  },
+  {
+   "answer": "BERT-Base contains 110 million parameters [S2], and BERT-Large contains 340 million parameters [S2].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "BERT-Base parameters",
+     "BERT-Large parameters",
+     "number of parameters BERT"
+    ],
+    "count_terms": [
+     "BERT-Base parameters",
+     "BERT-Large parameters",
+     "parameters BERT-Base",
+     "parameters BERT-Large"
+    ],
+    "standalone": "How many parameters do BERT-Base and BERT-Large have?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 379,
+     "actual_prompt_tokens": 372,
+     "actual_output_tokens": 67,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.5
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 2798,
+     "actual_prompt_tokens": 2878,
+     "actual_output_tokens": 31,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.5
+    }
+   ],
+   "doc": "bert",
+   "type": "fact",
+   "q": "How many parameters do BERT-Base and BERT-Large have?",
+   "pass": false,
+   "missing": [
+    "110M",
+    "340M"
+   ],
+   "seconds": 29.2
+  },
+  {
+   "answer": "During pre-training, 15% of tokens are masked [S1][S5].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "percentage tokens masked pre-training BERT"
+    ],
+    "count_terms": [
+     "percentage",
+     "tokens",
+     "masked",
+     "pre-training BERT"
+    ],
+    "standalone": "What percentage of tokens are masked during pre-training?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 374,
+     "actual_prompt_tokens": 367,
+     "actual_output_tokens": 45,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 3.4
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3674,
+     "actual_prompt_tokens": 3790,
+     "actual_output_tokens": 20,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 7.1
+    }
+   ],
+   "doc": "bert",
+   "type": "fact",
+   "q": "What percentage of tokens are masked during pre-training?",
+   "pass": true,
+   "missing": [],
+   "seconds": 28.8
+  },
+  {
+   "answer": "The MNLI-m dev accuracy of the No NSP model is 83.9 [S3].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 387,
+     "actual_prompt_tokens": 380,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 20.8
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4136,
+     "actual_prompt_tokens": 4201,
+     "actual_output_tokens": 23,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 7.7
+    }
+   ],
+   "doc": "bert",
+   "type": "table",
+   "q": "In the pre-training task ablation, what is the MNLI-m dev accuracy of the No NSP model?",
+   "pass": true,
+   "missing": [],
+   "seconds": 47.0
+  },
+  {
+   "answer": "- BooksCorpus (800M words) [L2], [L4]\n- English Wikipedia (2,500M words) [L2], [L4]",
+   "error": null,
+   "plan": {
+    "intent": "list",
+    "queries": [
+     "corpora BERT pre-training",
+     "datasets BERT uses"
+    ],
+    "count_terms": [
+     "BERT",
+     "pre-training",
+     "corpora",
+     "datasets"
+    ],
+    "standalone": "Which corpora is BERT pre-trained on?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 374,
+     "actual_prompt_tokens": 367,
+     "actual_output_tokens": 49,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.0
+    },
+    {
+     "call": "list-map 1/4",
+     "est_prompt_tokens": 4056,
+     "actual_prompt_tokens": 4192,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.2
+    },
+    {
+     "call": "list-map 2/4",
+     "est_prompt_tokens": 4043,
+     "actual_prompt_tokens": 4213,
+     "actual_output_tokens": 78,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 13.7
+    },
+    {
+     "call": "list-map 3/4",
+     "est_prompt_tokens": 3857,
+     "actual_prompt_tokens": 3975,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.4
+    },
+    {
+     "call": "list-map 4/4",
+     "est_prompt_tokens": 4093,
+     "actual_prompt_tokens": 4245,
+     "actual_output_tokens": 107,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 14.9
+    },
+    {
+     "call": "list-answer",
+     "est_prompt_tokens": 986,
+     "actual_prompt_tokens": 1030,
+     "actual_output_tokens": 40,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.1
+    }
+   ],
+   "doc": "bert",
+   "type": "fact",
+   "q": "Which corpora is BERT pre-trained on?",
+   "pass": true,
+   "missing": [],
+   "seconds": 54.3
+  },
+  {
+   "answer": "BERT achieves a GLUE score of 80.5% [S3].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 373,
+     "actual_prompt_tokens": 366,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 17.8
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 2407,
+     "actual_prompt_tokens": 2457,
+     "actual_output_tokens": 18,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.4
+    }
+   ],
+   "doc": "bert",
+   "type": "fact",
+   "q": "What GLUE score does BERT achieve?",
+   "pass": true,
+   "missing": [],
+   "seconds": 42.1
+  },
+  {
+   "answer": "The document does not contain information about the BLEU score of BERT on WMT14 English-German translation. The sources provided do not mention BLEU scores, WMT14, or English-German translation tasks. [C], [S1], [S2], [S3], [S4], [S5]",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "BLEU score BERT WMT14 English-German translation"
+    ],
+    "count_terms": [
+     "BLEU score",
+     "BERT",
+     "WMT14",
+     "English-German translation"
+    ],
+    "standalone": "What BLEU score does BERT get on WMT14 English-German translation?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 381,
+     "actual_prompt_tokens": 375,
+     "actual_output_tokens": 55,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.0
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 2701,
+     "actual_prompt_tokens": 2760,
+     "actual_output_tokens": 70,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 7.8
+    }
+   ],
+   "doc": "bert",
+   "type": "abstain",
+   "q": "What BLEU score does BERT get on WMT14 English-German translation?",
+   "pass": true,
+   "missing": [],
+   "seconds": 36.0
+  },
+  {
+   "answer": "The title of this document is \"Artificial Intelligence Risk Management Framework (AI RMF 1.0)\" [D].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "title of the document"
+    ],
+    "count_terms": [
+     "Artificial Intelligence Risk Management Framework (AI RMF 1.0)"
+    ],
+    "standalone": "What is the title of this document?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 375,
+     "actual_prompt_tokens": 368,
+     "actual_output_tokens": 42,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 3.7
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4703,
+     "actual_prompt_tokens": 4833,
+     "actual_output_tokens": 26,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 11.3
+    }
+   ],
+   "doc": "nist",
+   "type": "metadata",
+   "q": "What is the title of this document?",
+   "pass": true,
+   "missing": [],
+   "seconds": 36.3
+  },
+  {
+   "answer": "The document was published by the National Institute of Standards and Technology [D].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "publisher of AI RMF 1.0"
+    ],
+    "count_terms": [
+     "published by",
+     "author of",
+     "publisher of",
+     "created by"
+    ],
+    "standalone": "Who published this document?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 372,
+     "actual_prompt_tokens": 365,
+     "actual_output_tokens": 47,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 3.9
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 2696,
+     "actual_prompt_tokens": 2751,
+     "actual_output_tokens": 16,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.6
+    }
+   ],
+   "doc": "nist",
+   "type": "metadata",
+   "q": "Who published this document?",
+   "pass": true,
+   "missing": [],
+   "seconds": 27.8
+  },
+  {
+   "answer": "The AI Risk Management Framework (AI RMF 1.0) was published on January 24, 2023 [N1].",
+   "error": null,
+   "plan": {
+    "intent": "summary",
+    "queries": [
+     "publication date",
+     "release date",
+     "published",
+     "date of publication"
+    ],
+    "count_terms": [
+     "published",
+     "release date",
+     "publication date",
+     "date of publication"
+    ],
+    "standalone": "When was it published?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [
+    "24",
+    "2023"
+   ],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 372,
+     "actual_prompt_tokens": 365,
+     "actual_output_tokens": 53,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 3.9
+    },
+    {
+     "call": "summary-answer",
+     "est_prompt_tokens": 4076,
+     "actual_prompt_tokens": 4124,
+     "actual_output_tokens": 32,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 9.8
+    }
+   ],
+   "doc": "nist",
+   "type": "metadata",
+   "q": "When was it published?",
+   "pass": true,
+   "missing": [],
+   "seconds": 13.8
+  },
+  {
+   "answer": "- Govern [L1]\n- Map [L1]\n- Measure [L1]\n- Manage [L1]\n\nNote: These four functions (GOVERN, MAP, MEASURE, and MANAGE) are mentioned on page 4 as part of the AI RMF Core.",
+   "error": null,
+   "plan": {
+    "intent": "list",
+    "queries": [
+     "AI RMF Core functions",
+     "four functions AI RMF Core",
+     "AI RMF Core roles"
+    ],
+    "count_terms": [
+     "AI RMF Core functions",
+     "AI RMF Core roles",
+     "AI RMF Core functions list",
+     "AI RMF Core roles list"
+    ],
+    "standalone": "What are the four functions of the AI RMF Core?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 379,
+     "actual_prompt_tokens": 372,
+     "actual_output_tokens": 74,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.8
+    },
+    {
+     "call": "list-map 1/7",
+     "est_prompt_tokens": 3905,
+     "actual_prompt_tokens": 4014,
+     "actual_output_tokens": 127,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 15.7
+    },
+    {
+     "call": "list-map 2/7",
+     "est_prompt_tokens": 4034,
+     "actual_prompt_tokens": 4076,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.4
+    },
+    {
+     "call": "list-map 3/7",
+     "est_prompt_tokens": 3888,
+     "actual_prompt_tokens": 3959,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 7.9
+    },
+    {
+     "call": "list-map 4/7",
+     "est_prompt_tokens": 4039,
+     "actual_prompt_tokens": 4079,
+     "actual_output_tokens": 88,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 13.1
+    },
+    {
+     "call": "list-map 5/7",
+     "est_prompt_tokens": 4046,
+     "actual_prompt_tokens": 4095,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.2
+    },
+    {
+     "call": "list-map 6/7",
+     "est_prompt_tokens": 3990,
+     "actual_prompt_tokens": 4029,
+     "actual_output_tokens": 2,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.1
+    },
+    {
+     "call": "list-map 7/7",
+     "est_prompt_tokens": 656,
+     "actual_prompt_tokens": 660,
+     "actual_output_tokens": 133,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 9.3
+    },
+    {
+     "call": "list-answer",
+     "est_prompt_tokens": 1224,
+     "actual_prompt_tokens": 1269,
+     "actual_output_tokens": 58,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 6.0
+    }
+   ],
+   "doc": "nist",
+   "type": "fact",
+   "q": "What are the four functions of the AI RMF Core?",
+   "pass": true,
+   "missing": [],
+   "seconds": 82.6
+  },
+  {
+   "answer": "The characteristics of trustworthy AI systems include being valid, reliable, safe, secure, accountable, transparent, explainable, privacy-enhanced, and fair [N2]. Balancing these characteristics based on context is essential for trustworthiness [N2].",
+   "error": null,
+   "plan": {
+    "intent": "summary",
+    "queries": [
+     "characteristics of trustworthy AI systems",
+     "trustworthy AI system attributes",
+     "AI RMF 1.0 trustworthy AI features"
+    ],
+    "count_terms": [],
+    "standalone": "What are the characteristics of trustworthy AI systems?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 376,
+     "actual_prompt_tokens": 369,
+     "actual_output_tokens": 56,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 3.9
+    },
+    {
+     "call": "summary-answer",
+     "est_prompt_tokens": 4080,
+     "actual_prompt_tokens": 4128,
+     "actual_output_tokens": 51,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.0
+    }
+   ],
+   "doc": "nist",
+   "type": "fact",
+   "q": "What are the characteristics of trustworthy AI systems?",
+   "pass": false,
+   "missing": [
+    "valid and reliable"
+   ],
+   "seconds": 7.9
+  },
+  {
+   "answer": "Using the framework is not mandatory. The document states that the Framework is intended to be voluntary, providing flexibility to organizations of all sizes and in all sectors to implement the approaches in the Framework [S1].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "is using framework mandatory",
+     "framework mandatory requirement"
+    ],
+    "count_terms": [
+     "mandatory",
+     "requirement",
+     "compulsory",
+     "obligatory"
+    ],
+    "standalone": "Is using the framework mandatory?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 373,
+     "actual_prompt_tokens": 366,
+     "actual_output_tokens": 49,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.0
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3871,
+     "actual_prompt_tokens": 3962,
+     "actual_output_tokens": 42,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.1
+    }
+   ],
+   "doc": "nist",
+   "type": "fact",
+   "q": "Is using the framework mandatory?",
+   "pass": true,
+   "missing": [],
+   "seconds": 30.1
+  },
+  {
+   "answer": "Table 4 in the document provides statistical information about the datasets used for evaluating LightRAG [N3]. The table includes details on four datasets from the UltraDomain benchmark: Agriculture, CS, Legal, and Mix. Each dataset's statistics include the number of documents and the total number of tokens [N3]:\n\n- **Agriculture**: 12 documents, 2,017,886 tokens\n- **CS**: 10 documents, 2,306,535 tokens\n- **Legal**: 94 documents, 5,081,069 tokens\n- **Mix**: 61 documents, 619,009 tokens\n\nThese datasets vary in size and complexity, allowing for comprehensive evaluation of LightRAG's performance across different contexts [N3].",
+   "error": null,
+   "plan": {
+    "intent": "summary",
+    "queries": [
+     "Table 4",
+     "LIGHTRAG table"
+    ],
+    "count_terms": [
+     "Table 4",
+     "table 4",
+     "tablefour",
+     "table_four"
+    ],
+    "standalone": "Explain Table 4.",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 375,
+     "actual_prompt_tokens": 368,
+     "actual_output_tokens": 52,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.5
+    },
+    {
+     "call": "summary-answer",
+     "est_prompt_tokens": 2998,
+     "actual_prompt_tokens": 3073,
+     "actual_output_tokens": 173,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 16.6
+    }
+   ],
+   "doc": "lightrag",
+   "type": "structure",
+   "q": "Explain Table 4.",
+   "pass": true,
+   "missing": [],
+   "seconds": 21.2
+  },
+  {
+   "answer": "Figure 2 shows a comparison of cost in terms of tokens and API calls for GraphRAG and LightRAG on the Legal dataset [S1].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 378,
+     "actual_prompt_tokens": 371,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.8
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 5060,
+     "actual_prompt_tokens": 5259,
+     "actual_output_tokens": 32,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 12.3
+    }
+   ],
+   "doc": "lightrag",
+   "type": "structure",
+   "q": "What is shown in Figure 2?",
+   "pass": true,
+   "missing": [],
+   "seconds": 50.8
+  },
+  {
+   "answer": "Page 13 contains the following information:\n\n- A detailed description of the methodologies and experimental settings used in the LightRAG framework, including the extraction of entities and relationships from documents and the use of prompt templates and configurations [S1].\n- Statistical information of the datasets, including the number of documents and total tokens for each dataset [S2].\n- An overview of the prompts used in LightRAG, specifically the prompts for graph generation [S4].\n\nThe page also includes Table 4, which provides statistical information about the datasets [S2], and Figure 4, which illustrates prompts for graph generation [S4].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [
+    "13"
+   ],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 377,
+     "actual_prompt_tokens": 371,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.5
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 6083,
+     "actual_prompt_tokens": 6285,
+     "actual_output_tokens": 127,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 21.1
+    }
+   ],
+   "doc": "lightrag",
+   "type": "structure",
+   "q": "What is on page 13?",
+   "pass": true,
+   "missing": [],
+   "seconds": 58.6
+  },
+  {
+   "answer": "The Related Work section [N4] discusses existing retrieval-augmented generation (RAG) methods and their limitations, such as reliance on fragmented text chunks and inadequate comprehensive information retrieval [N1]. It highlights that current approaches limit the ability to capture complex interdependencies and provide contextually relevant responses [N1]. LightRAG addresses these issues by introducing a dual-level retrieval paradigm that enhances efficiency and response speed [N4]. The section also reviews large language models for graphs, categorizing them into GNNs as Prefix, LLMs as Prefix, and LLMs-Graphs Integration [N4]. LightRAG integrates LLMs and graph data efficiently, improving interaction and training processes [N4].",
+   "error": null,
+   "plan": {
+    "intent": "summary",
+    "queries": [],
+    "source": "rule"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "summary-answer",
+     "est_prompt_tokens": 3000,
+     "actual_prompt_tokens": 3075,
+     "actual_output_tokens": 146,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 10.9
+    }
+   ],
+   "doc": "lightrag",
+   "type": "structure",
+   "q": "Summarize Section 5.",
+   "pass": true,
+   "missing": [],
+   "seconds": 10.9
+  },
+  {
+   "answer": "GraphRAG is mentioned 37 times in the paper [S1].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "GraphRAG mentioned"
+    ],
+    "count_terms": [
+     "GraphRAG",
+     "mentioned",
+     "times",
+     "paper"
+    ],
+    "standalone": "How many times is GraphRAG mentioned in the paper?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 382,
+     "actual_prompt_tokens": 375,
+     "actual_output_tokens": 39,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 3.2
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 5408,
+     "actual_prompt_tokens": 5605,
+     "actual_output_tokens": 17,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 11.9
+    }
+   ],
+   "doc": "lightrag",
+   "type": "count",
+   "q": "How many times is GraphRAG mentioned in the paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 33.8
+  },
+  {
+   "answer": "The paper cited the most in this document is \"From local to global: A graph rag approach to query-focused summarization\" by Darren Edge, Ha Trinh, Newman Cheng, Joshua Bradley, Alex Chao, Apurva Mody, Steven Truitt, and Jonathan Larson, which is cited 5 times [R].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "most cited paper",
+     "cited paper",
+     "citation frequency"
+    ],
+    "count_terms": [
+     "cited",
+     "citation",
+     "reference",
+     "referenced paper title or name here if known or specific enough to be unique in the document context, otherwise leave empty as it's not specified in the question."
+    ],
+    "standalone": "Which paper is cited the most in this paper?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 380,
+     "actual_prompt_tokens": 373,
+     "actual_output_tokens": 79,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 6.4
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 5107,
+     "actual_prompt_tokens": 5258,
+     "actual_output_tokens": 68,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 15.0
+    }
+   ],
+   "doc": "lightrag",
+   "type": "citation",
+   "q": "Which paper is cited the most in this paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 40.3
+  },
+  {
+   "answer": "- NaiveRAG [L1], [L4]\n- GraphRAG [L2], [L3]\n- RQ-RAG [L2]\n- HyDE [L2]",
+   "error": null,
+   "plan": {
+    "intent": "list",
+    "queries": [
+     "LightRAG baseline methods",
+     "LightRAG comparison baselines",
+     "LightRAG compared methods"
+    ],
+    "count_terms": [],
+    "standalone": "List all baseline methods LightRAG is compared with.",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 420,
+     "actual_prompt_tokens": 413,
+     "actual_output_tokens": 49,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.7
+    },
+    {
+     "call": "list-map 1/4",
+     "est_prompt_tokens": 3803,
+     "actual_prompt_tokens": 3799,
+     "actual_output_tokens": 140,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 15.8
+    },
+    {
+     "call": "list-map 2/4",
+     "est_prompt_tokens": 3966,
+     "actual_prompt_tokens": 4124,
+     "actual_output_tokens": 160,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 17.9
+    },
+    {
+     "call": "list-map 3/4",
+     "est_prompt_tokens": 3841,
+     "actual_prompt_tokens": 3974,
+     "actual_output_tokens": 164,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 17.7
+    },
+    {
+     "call": "list-map 4/4",
+     "est_prompt_tokens": 3204,
+     "actual_prompt_tokens": 3302,
+     "actual_output_tokens": 27,
+     "max_output_tokens": 450,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.3
+    },
+    {
+     "call": "list-answer",
+     "est_prompt_tokens": 1342,
+     "actual_prompt_tokens": 1370,
+     "actual_output_tokens": 42,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.5
+    }
+   ],
+   "doc": "lightrag",
+   "type": "list",
+   "q": "List all baseline methods LightRAG is compared with.",
+   "pass": true,
+   "missing": [],
+   "seconds": 70.0
+  },
+  {
+   "answer": "這篇論文的作者是Zirui Guo, Lianghao Xia, Yanhua Yu, Tu Ao, 和 Chao Huang [S4].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 385,
+     "actual_prompt_tokens": 373,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.0
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3325,
+     "actual_prompt_tokens": 3456,
+     "actual_output_tokens": 35,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 8.8
+    }
+   ],
+   "doc": "lightrag",
+   "type": "multilingual",
+   "q": "這篇論文的作者是誰？",
+   "pass": true,
+   "missing": [],
+   "seconds": 45.3
+  },
+  {
+   "answer": "在 Legal 資料集上，LightRAG 相對於 NaiveRAG 的 Overall 勝率為 84.8% [S4]。",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 398,
+     "actual_prompt_tokens": 388,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 19.5
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 6546,
+     "actual_prompt_tokens": 6825,
+     "actual_output_tokens": 38,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 14.4
+    }
+   ],
+   "doc": "lightrag",
+   "type": "multilingual",
+   "q": "LightRAG 在 Legal 資料集上相對 NaiveRAG 的 Overall 勝率是多少？",
+   "pass": true,
+   "missing": [],
+   "seconds": 53.6
+  },
+  {
+   "answer": "For the Legal dataset, LightRAG outperforms GraphRAG and other baselines, particularly in handling large token counts and complex queries that require a thorough understanding of the dataset's context [S4]. The Legal dataset is the largest, comprising 94 documents and 5,081,069 tokens [S5]. LightRAG's dual-level retrieval paradigm and graph-based text indexing contribute to its superior performance in capturing complex semantic dependencies within large-scale corpora [S4]. However, the specific win rate of LightRAG against NaiveRAG on the Legal dataset is not provided in the given sources.",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 433,
+     "actual_prompt_tokens": 427,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 20.5
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 3256,
+     "actual_prompt_tokens": 3331,
+     "actual_output_tokens": 130,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 14.0
+    }
+   ],
+   "doc": "lightrag",
+   "type": "follow-up",
+   "q": "And on the Legal dataset?",
+   "pass": false,
+   "missing": [
+    "84.8"
+   ],
+   "seconds": 54.3
+  },
+  {
+   "answer": "The title of this paper is \"Attention Is All You Need\" [D].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "title paper Attention Is All You Need"
+    ],
+    "count_terms": [
+     "Attention Is All You Need",
+     "title",
+     "paper",
+     "document title"
+    ],
+    "standalone": "What is the title of this paper?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 365,
+     "actual_prompt_tokens": 358,
+     "actual_output_tokens": 46,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.2
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 2735,
+     "actual_prompt_tokens": 2792,
+     "actual_output_tokens": 17,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 6.3
+    }
+   ],
+   "doc": "attention",
+   "type": "metadata",
+   "q": "What is the title of this paper?",
+   "pass": true,
+   "missing": [],
+   "seconds": 28.4
+  },
+  {
+   "answer": "The paper most referenced is [38] by Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc V Le, Mohammad Norouzi, Wolfgang Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey, et al., which discusses Google’s neural machine translation. This paper is cited 8 times in the document [D].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "most referenced paper",
+     "citations count",
+     "Attention Is All You Need"
+    ],
+    "count_terms": [
+     "Attention Is All You Need",
+     "cited",
+     "referenced",
+     "times cited by others papers in the field of neural networks and machine learning."
+    ],
+    "standalone": "Which paper has been referenced the most?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 365,
+     "actual_prompt_tokens": 358,
+     "actual_output_tokens": 70,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 5.3
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4057,
+     "actual_prompt_tokens": 4253,
+     "actual_output_tokens": 82,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 11.7
+    }
+   ],
+   "doc": "attention",
+   "type": "citation",
+   "q": "Which paper has been referenced the most?",
+   "pass": true,
+   "missing": [],
+   "seconds": 35.1
+  },
+  {
+   "answer": "Reference [2] is:\n\nNeural machine translation by jointly learning to align and translate by Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio. [S1]",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [
+     "reference 2"
+    ],
+    "count_terms": [
+     "reference 2",
+     "citation 2",
+     "bibliography 2",
+     "works cited 2"
+    ],
+    "standalone": "What is reference [2]?",
+    "clarification": "",
+    "source": "llm"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 363,
+     "actual_prompt_tokens": 356,
+     "actual_output_tokens": 52,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 4.3
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 4724,
+     "actual_prompt_tokens": 4979,
+     "actual_output_tokens": 43,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 10.5
+    }
+   ],
+   "doc": "attention",
+   "type": "structure",
+   "q": "What is reference [2]?",
+   "pass": true,
+   "missing": [],
+   "seconds": 32.1
+  },
+  {
+   "answer": "The Transformer achieves a BLEU score of 28.4 on the WMT 2014 English-to-German translation task [S2].",
+   "error": null,
+   "plan": {
+    "intent": "question",
+    "queries": [],
+    "source": "fallback (JSONDecodeError)"
+   },
+   "invalid_citations": [],
+   "ungrounded_numbers": [],
+   "all_calls_within_limit": true,
+   "ledger": [
+    {
+     "call": "plan",
+     "est_prompt_tokens": 376,
+     "actual_prompt_tokens": 371,
+     "actual_output_tokens": 300,
+     "max_output_tokens": 300,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 20.3
+    },
+    {
+     "call": "answer",
+     "est_prompt_tokens": 2982,
+     "actual_prompt_tokens": 3095,
+     "actual_output_tokens": 33,
+     "max_output_tokens": 1200,
+     "context_limit": 10000,
+     "within_limit": true,
+     "seconds": 9.6
+    }
+   ],
+   "doc": "attention",
+   "type": "fact",
+   "q": "What BLEU score does the Transformer achieve on WMT 2014 English-to-German?",
+   "pass": true,
+   "missing": [],
+   "seconds": 48.9
+  }
+ ]
+}

@@ -1,0 +1,462 @@
+{
+  "_about": "Generic evaluation: metadata, facts, table cells, comparisons, summaries and questions the document cannot answer, over three documents with different layouts. Expected strings were checked against each document's extracted text, not written from memory. Scoring: every string in `all` must appear in the answer, and at least one string from each group in `any` (case-insensitive, thousands separators ignored). `abstain` questions pass when the answer says the document does not contain the information.",
+  "documents": {
+    "lightrag": {
+      "source": "https://arxiv.org/pdf/2410.05779",
+      "layout": "single-column academic paper (ICLR style), multi-level win-rate tables"
+    },
+    "bert": {
+      "source": "https://arxiv.org/pdf/1810.04805",
+      "layout": "two-column academic paper (ACL style), bold body-size headings, stacked table headers"
+    },
+    "nist": {
+      "source": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf",
+      "layout": "48-page government framework report, cover pages, table of contents, text tables"
+    },
+    "attention": {
+      "source": "https://arxiv.org/pdf/1706.03762",
+      "layout": "NeurIPS paper, numeric [n] citations"
+    }
+  },
+  "questions": [
+    {
+      "doc": "lightrag",
+      "type": "metadata",
+      "q": "What is the title of this paper?",
+      "all": [
+        "LightRAG"
+      ],
+      "any": [
+        [
+          "simple and fast"
+        ]
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "metadata",
+      "q": "Who are the authors?",
+      "all": [
+        "Zirui Guo",
+        "Chao Huang"
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "metadata",
+      "q": "Which institutions are the authors affiliated with?",
+      "all": [
+        "Hong Kong"
+      ],
+      "any": [
+        [
+          "Beijing University of Posts"
+        ]
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "fact",
+      "q": "Which datasets are used in the evaluation?",
+      "all": [
+        "Agriculture",
+        "CS",
+        "Legal",
+        "Mix"
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "table",
+      "q": "How many tokens does the Legal dataset contain?",
+      "all": [
+        "5081069"
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "table",
+      "q": "In the ablation study, what is the Overall win rate of the -High variant on the CS dataset?",
+      "all": [
+        "56.0"
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "fact",
+      "q": "What does the -Origin variant remove?",
+      "any": [
+        [
+          "original text"
+        ]
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "fact",
+      "q": "How many tokens does GraphRAG consume during retrieval on the Legal dataset?",
+      "any": [
+        [
+          "610000",
+          "610 × 1000",
+          "610×1000",
+          "610 x 1000"
+        ]
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "fact",
+      "q": "What chunk size is used in the experiments?",
+      "all": [
+        "1200"
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "abstain",
+      "q": "What GPU was used to run the experiments?",
+      "abstain": true
+    },
+    {
+      "doc": "lightrag",
+      "type": "core",
+      "q": "summary this document.",
+      "all": [
+        "graph"
+      ],
+      "any": [
+        [
+          "dual-level",
+          "dual level",
+          "low-level and high-level",
+          "low-level",
+          "high-level"
+        ],
+        [
+          "incremental"
+        ]
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "core",
+      "q": "compare lightRAG with GraphRAG",
+      "all": [
+        "GraphRAG"
+      ],
+      "any": [
+        [
+          "610000",
+          "communit"
+        ],
+        [
+          "incremental",
+          "update",
+          "new data"
+        ]
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "core",
+      "q": "Performance of ablated versions of LightRAG",
+      "all": [
+        "-High",
+        "-Low",
+        "-Origin"
+      ],
+      "any": [
+        [
+          "%"
+        ],
+        [
+          "original text",
+          "raw text",
+          "source text"
+        ]
+      ]
+    },
+    {
+      "doc": "bert",
+      "type": "metadata",
+      "q": "What is the title of this paper?",
+      "all": [
+        "BERT",
+        "Bidirectional"
+      ]
+    },
+    {
+      "doc": "bert",
+      "type": "metadata",
+      "q": "Who are the authors?",
+      "all": [
+        "Devlin",
+        "Toutanova"
+      ]
+    },
+    {
+      "doc": "bert",
+      "type": "fact",
+      "q": "How many parameters do BERT-Base and BERT-Large have?",
+      "any": [
+        [
+          "110M",
+          "110 million"
+        ],
+        [
+          "340M",
+          "340 million"
+        ]
+      ]
+    },
+    {
+      "doc": "bert",
+      "type": "fact",
+      "q": "What percentage of tokens are masked during pre-training?",
+      "all": [
+        "15%"
+      ]
+    },
+    {
+      "doc": "bert",
+      "type": "table",
+      "q": "In the pre-training task ablation, what is the MNLI-m dev accuracy of the No NSP model?",
+      "all": [
+        "83.9"
+      ]
+    },
+    {
+      "doc": "bert",
+      "type": "fact",
+      "q": "Which corpora is BERT pre-trained on?",
+      "all": [
+        "BooksCorpus",
+        "Wikipedia"
+      ]
+    },
+    {
+      "doc": "bert",
+      "type": "fact",
+      "q": "What GLUE score does BERT achieve?",
+      "all": [
+        "80.5"
+      ]
+    },
+    {
+      "doc": "bert",
+      "type": "abstain",
+      "q": "What BLEU score does BERT get on WMT14 English-German translation?",
+      "abstain": true
+    },
+    {
+      "doc": "nist",
+      "type": "metadata",
+      "q": "What is the title of this document?",
+      "all": [
+        "Risk Management Framework"
+      ]
+    },
+    {
+      "doc": "nist",
+      "type": "metadata",
+      "q": "Who published this document?",
+      "any": [
+        [
+          "National Institute of Standards and Technology",
+          "NIST"
+        ]
+      ]
+    },
+    {
+      "doc": "nist",
+      "type": "metadata",
+      "q": "When was it published?",
+      "all": [
+        "2023"
+      ]
+    },
+    {
+      "doc": "nist",
+      "type": "fact",
+      "q": "What are the four functions of the AI RMF Core?",
+      "all": [
+        "GOVERN",
+        "MAP",
+        "MEASURE",
+        "MANAGE"
+      ]
+    },
+    {
+      "doc": "nist",
+      "type": "fact",
+      "q": "What are the characteristics of trustworthy AI systems?",
+      "all": [
+        "explainable"
+      ],
+      "any": [
+        [
+          "valid and reliable",
+          "valid, reliable",
+          "valid & reliable"
+        ],
+        [
+          "privacy-enhanced",
+          "privacy enhanced"
+        ]
+      ]
+    },
+    {
+      "doc": "nist",
+      "type": "fact",
+      "q": "Is using the framework mandatory?",
+      "all": [
+        "voluntary"
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "structure",
+      "q": "Explain Table 4.",
+      "all": [
+        "5081069"
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "structure",
+      "q": "What is shown in Figure 2?",
+      "any": [
+        [
+          "cost",
+          "token"
+        ]
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "structure",
+      "q": "What is on page 13?",
+      "any": [
+        [
+          "Table 4",
+          "statistic",
+          "dataset"
+        ]
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "structure",
+      "q": "Summarize Section 5.",
+      "all": [
+        "graph"
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "count",
+      "q": "How many times is GraphRAG mentioned in the paper?",
+      "all": [
+        "37"
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "citation",
+      "q": "Which paper is cited the most in this paper?",
+      "any": [
+        [
+          "Edge",
+          "From local to global"
+        ]
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "list",
+      "q": "List all baseline methods LightRAG is compared with.",
+      "all": [
+        "NaiveRAG",
+        "RQ-RAG",
+        "HyDE",
+        "GraphRAG"
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "multilingual",
+      "q": "這篇論文的作者是誰？",
+      "all": [
+        "Zirui Guo"
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "multilingual",
+      "q": "LightRAG 在 Legal 資料集上相對 NaiveRAG 的 Overall 勝率是多少？",
+      "all": [
+        "84.8"
+      ]
+    },
+    {
+      "doc": "lightrag",
+      "type": "follow-up",
+      "q": "And on the Legal dataset?",
+      "history": [
+        {
+          "role": "user",
+          "content": "What is the Overall win rate of LightRAG against NaiveRAG on the CS dataset?"
+        },
+        {
+          "role": "assistant",
+          "content": "On the CS dataset, LightRAG's Overall win rate against NaiveRAG is 61.2% [S1]."
+        }
+      ],
+      "all": [
+        "84.8"
+      ]
+    },
+    {
+      "doc": "attention",
+      "type": "metadata",
+      "q": "What is the title of this paper?",
+      "all": [
+        "Attention Is All You Need"
+      ]
+    },
+    {
+      "doc": "attention",
+      "type": "citation",
+      "q": "Which paper has been referenced the most?",
+      "any": [
+        [
+          "Gehring",
+          "Convolutional sequence",
+          "Wu",
+          "Google"
+        ]
+      ]
+    },
+    {
+      "doc": "attention",
+      "type": "structure",
+      "q": "What is reference [2]?",
+      "all": [
+        "Bahdanau"
+      ]
+    },
+    {
+      "doc": "attention",
+      "type": "fact",
+      "q": "What BLEU score does the Transformer achieve on WMT 2014 English-to-German?",
+      "all": [
+        "28.4"
+      ]
+    }
+  ],
+  "_scoring_changes": [
+    "2026-11-06: equivalent wordings accepted after the qwen2.5:14b run (110 million = 110M; 'valid, reliable' = 'valid and reliable'; 'new data' = incremental update). Expected facts unchanged.",
+    "2026-11-07: stricter. Q3 must also state what -Origin removes (the original text), as the robustness set already required; a saved answer had passed while defining -Origin wrongly. Saved answers re-scored in evaluation/results/RESULTS_INDEX.md."
+  ]
+}
