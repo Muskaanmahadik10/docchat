@@ -6,3 +6,5 @@ data/
 .env
 samples/*.pdf
 ~$*
+coverage.xml
+.coverage
