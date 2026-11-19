@@ -227,7 +227,7 @@ an NVIDIA GPU. To use a hosted model instead, set `LLM_PROVIDER`, `LLM_BASE_URL`
 
 ## CI
 
-`.gitlab-ci.yml` runs the test suite on every push and merge request (JUnit report attached) and builds the
+GitHub Actions (`.github/workflows/ci.yml`) and `.gitlab-ci.yml` both run the test suite on every push and merge request (JUnit report attached) and builds the
 Docker image on the default branch. The tests use a fake LLM and fake embeddings, so CI needs no model
 server or API key.
 
@@ -251,6 +251,28 @@ chart it in Grafana.
 | POST | `/api/retrieve` | evidence a question would receive, without an LLM call (debugging, retrieval evaluation) |
 | GET | `/api/health` | model, embeddings and reranker status, effective context limit |
 | GET | `/metrics` | Prometheus metrics |
+
+## MCP server
+
+`python -m app.mcp_server` serves DocChat's retrieval over MCP (stdio), so Claude Desktop, Claude Code or any
+MCP client can read the documents you have already indexed through the web app:
+
+| Tool | Returns |
+|---|---|
+| `list_documents` | id, file name, title, pages, chunks, tables and status of each indexed document |
+| `get_document_card` | the document card built by code from the layout (title, authors, abstract, outline, captions) and the most-cited references |
+| `search_document` | the best passages for a query, each with page and section: the same hybrid search and reranking as the chat, without generation |
+
+All three tools are read-only and call no LLM, so they use no API quota; each declares the four MCP tool
+annotations (`readOnlyHint`, `destructiveHint`, `idempotentHint`, `openWorldHint`). Inputs are validated
+(document ids must match the 16-character format, queries are capped), background summaries are switched off
+in the server, and returned passages are untrusted document text: a client should cite them, not follow
+instructions found in them. Tested in `tests/test_mcp_server.py`, including a check that no tool call reaches
+the LLM. Claude Desktop config:
+
+```json
+{"mcpServers": {"docchat": {"command": "<venv>/Scripts/python", "args": ["-m", "app.mcp_server"], "cwd": "<repo>"}}}
+```
 
 ## Limitations
 
