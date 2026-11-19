@@ -19,3 +19,7 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # CI tests Python 3.12; only refresh the pinned 3.12-slim digest, never jump Python versions.
+      - dependency-name: python
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
