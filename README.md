@@ -3,6 +3,8 @@
 A website with a chat interface: upload a document, ask questions, get answers grounded in the
 document with page citations. An individual project by Muskaan Mahadik.
 
+![CI](https://github.com/Muskaanmahadik10/docchat/actions/workflows/ci.yml/badge.svg) [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Muskaanmahadik10/docchat/badge)](https://scorecard.dev/viewer/?uri=github.com/Muskaanmahadik10/docchat) ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+
 Constraints honoured:
 
 1. **No ready-made GPT/Gemini document parsing.** PDFs are parsed locally with PyMuPDF (text, reading
