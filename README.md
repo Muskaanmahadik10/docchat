@@ -3,7 +3,7 @@
 A website with a chat interface: upload a document, ask questions, get answers grounded in the
 document with page citations. An individual project by Muskaan Mahadik.
 
-![CI](https://github.com/Muskaanmahadik10/docchat/actions/workflows/ci.yml/badge.svg) [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Muskaanmahadik10/docchat/badge)](https://scorecard.dev/viewer/?uri=github.com/Muskaanmahadik10/docchat) ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+![CI](https://github.com/Muskaanmahadik10/docchat/actions/workflows/ci.yml/badge.svg) [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Muskaanmahadik10/docchat/badge)](https://scorecard.dev/viewer/?uri=github.com/Muskaanmahadik10/docchat) [![codecov](https://codecov.io/gh/Muskaanmahadik10/docchat/graph/badge.svg)](https://codecov.io/gh/Muskaanmahadik10/docchat) ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Constraints honoured:
 
